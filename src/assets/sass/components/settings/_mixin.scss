@@ -1,0 +1,11 @@
+@mixin tablet-layout ($width: 1366px) {
+  @media screen and (max-width: $width) {
+    @content;
+  }
+}
+
+@mixin sp-layout ($width: 768px) {
+  @media screen and (max-width: $width) {
+    @content;
+  }
+}

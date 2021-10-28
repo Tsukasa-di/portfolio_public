@@ -1,0 +1,6 @@
+mixin slide(img, head, modalId=null)
+  .slide.modal-trigger-open.CURSOR--hover(data-modal=modalId)
+    img(src=img)
+    h2
+      |#{head}
+    block

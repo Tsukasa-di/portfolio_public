@@ -1,0 +1,16 @@
+@mixin slide() {
+  .slider-wrap {
+    overflow: hidden;
+    pointer-events: visible;
+    position: relative;
+  }
+
+  .slider-inner {
+    transition: ease-in-out .8s;
+    display: flex;
+  }
+
+  .slide {
+    display: inline-block;
+  }
+}

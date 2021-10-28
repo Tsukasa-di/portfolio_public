@@ -1,0 +1,19 @@
+@use "./modules/modal" as modal;
+@use "./modules/animate" as animate;
+
+.MODULES-modal {
+  display: none;
+  transition: all .7s;
+  position: absolute;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  @include modal.mask;
+  @include modal.wrap;
+  @include modal.inner;
+  @include modal.close;
+}
+@include animate.scaleup-to-bottom();

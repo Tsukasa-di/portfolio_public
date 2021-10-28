@@ -1,0 +1,17 @@
+@use "./cursor" as cursor;
+@use "./scroll" as scroll;
+@use "./screenChecker" as screenChecker;
+@use "./swiper" as swiper;
+@use "./menu" as menu;
+
+.UI {
+  width: 100%;
+  height: 100%;
+
+  @include cursor.app();
+  @include screenChecker.app();
+  @include menu.app();
+}
+
+@include swiper.app();
+@include scroll.app();

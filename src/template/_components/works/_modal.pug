@@ -1,0 +1,23 @@
+include ./_components/_modal.pug
+
+.MODULES-modal.CONTENTS
+  .modal-mask.CURSOR--hover.CURSOR--click
+  .modal-wrap
+    .modal-inner
+      button.modal-trigger-close.CURSOR--hover.CURSOR--click
+        .close-button
+          span.line
+          span.line
+        span.text
+          |CLOSE
+      .modal-content
+        each work in global.works
+          if work.id === 'lions70th'
+            +modal(work.mv, work.title, work.id, work.link, work.info)
+              include ../../../contents/works/_lions70th.pug
+          if work.id === 'portfolio'
+            +modal(work.mv, work.title, work.id, work.link, work.info)
+              include ../../../contents/works/_portfolio.pug
+          if work.id === 'direction'
+            +modal(work.mv, work.title, work.id, work.link, work.info)
+              include ../../../contents/works/_direction.pug

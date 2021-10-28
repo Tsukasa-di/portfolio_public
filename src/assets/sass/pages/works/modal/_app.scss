@@ -1,0 +1,20 @@
+@use "../../../setting/app" as global;
+@use "sass:map";
+
+@mixin app() {
+  .modal-mask {
+    background-color: rgba(60, 60, 60, 0.45);
+  }
+
+  .modal-inner {
+    border: 1px solid map.get(global.$color, _gray);
+  }
+
+  .modal-content {
+    background-color: rgba(0,0,0,0.6);
+  }
+
+  .modal-content-inner {
+    position: relative;
+  }
+}

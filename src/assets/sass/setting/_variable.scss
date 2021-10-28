@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,100;1,300;1,400;1,500&display=swap');
+
+$color: (
+  main: #CF70CB,
+  _white: #ffffff,
+  _black: #000000,
+  _gray: #777777,
+  _green: green,
+  hovered: #218bff
+);
+
+$fontSize: (
+  // head
+  h1: 2.0rem,
+  h2: 3.85rem,
+  p: 2.0rem,
+  // common
+  common-page_title: 2.55rem,
+  common-now_loading: 2.4rem,
+  common-transition: 3.2rem,
+  entry-head: 4.5rem,
+  entry-button: 1.6rem,
+  entry-annotation: 1.4rem,
+  // opening
+  opening-screen: 1.6rem,
+  opening-head: 3.76rem,
+  opening-p: 2.4rem,
+  opening-dot: 5.6rem,
+  // home
+  home-opening: 3.52rem,
+  home-page_title: 3.0rem,
+  home-select_menu: 3.25rem,
+  home-menu: 4.0rem,
+  home-story: 2.4rem,
+  // about
+  about-content: 2.1rem,
+  // works
+  works-modal-decoration: 10.4rem,
+  works-slider-button: 2.4rem,
+  works-slider-head: 2.8rem,
+  // tablet
+  tablet-opening-screen: 1.3rem,
+  tablet-opening-head: 3.0rem,
+  tablet-opening-p: 2.1rem,
+  tablet-entry-head: 5.5rem,
+  tablet-works-slider-head: 2.2rem,
+  tablet-works-slider-p: 1.5rem
+);
+
+@mixin roboto() {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+.roboto {
+  @include roboto();
+}
+
+@mixin klee() {
+  font-family: klee-one, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+.klee {
+  @include klee();
+}
+
+@mixin traijan() {
+  font-family: trajan-pro-3, serif;
+  font-weight: 200;
+}
+.traijan {
+  @include traijan();
+}
+
+@mixin vdl() {
+  font-family: vdl-pengentle, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+}
+.vdl {
+  @include vdl();
+}

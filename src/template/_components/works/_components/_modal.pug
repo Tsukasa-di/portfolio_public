@@ -1,0 +1,21 @@
+mixin modal(mv, title, id, link, info)
+  div.modal-content-inner(id="modal-" + id)
+    .firstview
+      .mv
+        img(src="../assets/images/works/mv/" + mv)
+      .info
+        h2 #{title}
+        .inner
+          each item in info
+            p
+              span.traijan -
+              |#{item}
+          if link
+            p
+              span.traijan -
+              |<a href="#{link}" target="_blank">サイトへ移動する</a>
+      .MODULES-scroll
+        p SCROLL
+        .decoration
+          span
+    block

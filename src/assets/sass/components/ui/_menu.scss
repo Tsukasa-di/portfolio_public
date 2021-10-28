@@ -1,0 +1,77 @@
+@use "../../setting/app" as global;
+@use "sass:map";
+
+body.HOME .MODULES-menu, body.OPENING .MODULES-menu {
+  opacity: 0 !important;
+}
+
+@mixin app() {
+  .MODULES-menu {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 2;
+    pointer-events: none;
+    display: block;
+    transition: .7s;
+    overflow: hidden;
+
+    h1, h2, h3, h4, a, p, span {
+      pointer-events: none;
+    }
+
+    &.active {
+      pointer-events: visible;
+
+      h1, h2, h3, h4, a, p {
+        pointer-events: visible;
+      }
+    }
+
+    .button {
+      width: 6.0rem;
+      position: absolute;
+      z-index: 1;
+      top: 3.0rem;
+      right: 3.0rem;
+      transition: .7s;
+      pointer-events: visible;
+
+      p {
+        text-shadow: 0 0 10px map.get(global.$color, _white);
+      }
+
+      &:hover {
+        .lines span {
+          transform: scaleX(70%);
+        }
+        .lines span:last-child {
+          transform: scaleX(50%);
+        }
+      }
+
+      @include global.tablet-layout() {
+        top: 4.0rem;
+      }
+    }
+
+    .lines {
+      span {
+        display: block;
+        width: 100%;
+        height: 4px;
+        margin-bottom: 7px;
+        // skin
+        background-color: map.get(global.$color, _white);
+        box-shadow: 0 0 10px map.get(global.$color, _white);
+        // fnction
+        transition: .7s;
+        transform-origin: right;
+      }
+
+      span:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

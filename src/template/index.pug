@@ -1,0 +1,43 @@
+extends ./_layouts/_default.pug
+
+block Setting
+  -
+    head.title = "HOME";
+
+block Styles
+  style(type="text/css").
+    #dreams {
+      opacity: .15
+    }
+
+    .page-title {
+      left: 20px;
+      right: unset;
+    }
+
+    .CONTENTS {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+block Contents
+  .prompt
+    p.escape ←ESCAPE
+    span
+  .opening
+    p
+  .launched
+    .story
+      p
+    .ui
+      h1.page-title
+      .menu
+        .select-menu
+          .inner
+            p SELECT MENU.
+        ul
+          li
+            a.TRANSITION.CURSOR--hover(data-link="/about") - ABOUT
+          li
+            a.TRANSITION.CURSOR--hover(data-link="/works") - WORKS

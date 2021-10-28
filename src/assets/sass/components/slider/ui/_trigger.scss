@@ -1,0 +1,15 @@
+@mixin tritters() {
+  .triggers {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .trigger {
+    display: inline-block;
+
+    &.unactive {
+      opacity: .5;
+      pointer-events: none;
+    }
+  }
+}

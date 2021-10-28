@@ -1,0 +1,29 @@
+@use "../../setting/app" as global;
+
+@mixin app() {
+  .MODULES-swiper {
+    background-color: #000;
+    opacity: 0;
+    // display
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    // constructor
+    width: 100%;
+    height: 100%;
+    // position
+    position: relative;
+    z-index: 4;
+
+    @include global.tablet-layout() {
+      display: flex;
+    }
+
+    p {
+      @include global.traijan();
+      font-size: 4.0rem;
+      font-weight: 300;
+    }
+  }
+}

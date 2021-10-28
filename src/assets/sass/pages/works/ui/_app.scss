@@ -1,0 +1,14 @@
+@use "../../../setting/app" as global;
+
+@mixin scroll() {
+  .MODULES-scroll {
+    position: absolute;
+    bottom: 5.0rem;
+    left: 5.0rem;
+
+    p {
+      @include global.roboto();
+      font-weight: 100;
+    }
+  }
+}

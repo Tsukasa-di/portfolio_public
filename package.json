@@ -1,0 +1,52 @@
+{
+  "name": "web-gl",
+  "version": "1.0.0",
+  "description": "WebGL開発環境",
+  "main": "gulpfile.js",
+  "scripts": {
+    "dev": "npx gulp && npx webpack-dev-server --config ./webpack.dev.js",
+    "build": "npx gulp && npx webpack --config ./webpack.prod.js",
+    "images": "npx gulp images",
+    "sitemap": "npx gulp sitemap"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tsukasa-di/web-gl.git"
+  },
+  "author": "Tsukasa Tomioka",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tsukasa-di/web-gl/issues"
+  },
+  "homepage": "https://github.com/Tsukasa-di/web-gl#readme",
+  "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/preset-env": "^7.14.7",
+    "autoprefixer": "^10.3.1",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^6.1.0",
+    "dat.gui": "^0.7.7",
+    "delete": "^1.1.0",
+    "fibers": "^5.0.0",
+    "file-loader": "^6.2.0",
+    "fs": "0.0.1-security",
+    "glob": "^7.1.7",
+    "gulp": "^4.0.2",
+    "gulp-imagemin": "^7.1.0",
+    "html-webpack-plugin": "^5.3.2",
+    "mini-css-extract-plugin": "^2.1.0",
+    "path": "^0.12.7",
+    "postcss-loader": "^6.1.1",
+    "pug": "^3.0.2",
+    "pug-loader": "^2.4.0",
+    "sass": "^1.32.8",
+    "sass-loader": "^12.1.0",
+    "stats.js": "^0.17.0",
+    "svg-inline-loader": "^0.8.2",
+    "three": "^0.130.0",
+    "webpack": "^5.45.1",
+    "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "^4.1.0",
+    "webpack-merge": "^5.8.0"
+  }
+}

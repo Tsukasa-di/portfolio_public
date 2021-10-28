@@ -1,0 +1,31 @@
+extends ../_layouts/_default.pug
+
+block Setting
+  -
+    head.title = 'ABOUT';
+
+block Styles
+  style(type="text/css").
+    .home-menu ul {
+      left: unset;
+      right: 1%;
+    }
+
+block Contents
+  .content
+    .inner
+      p
+  .changers
+    p.CURSOR--hover.CURSOR--click(
+      data-changer="workFeeling"
+    )
+      span.traijan -
+      |WORK FEELING
+      span.line
+    br
+    p.CURSOR--hover.CURSOR--click(
+      data-changer="profile"
+    )
+      span.traijan -
+      |PROFILE
+      span.line
