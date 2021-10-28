@@ -1,0 +1,8 @@
+(.gitignore)
+
+・
+・
+public/
+node_modules/
+src/contents/sitemap.json
+src/js/controllers/_app.js
