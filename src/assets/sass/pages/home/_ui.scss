@@ -42,6 +42,7 @@
       }
 
       @include global.tablet-layout() {
+        top: 3rem;
         left: -260%;
       }
     }
@@ -63,7 +64,7 @@
       margin-top: 2.5%;
 
       @include global.tablet-layout() {
-        margin-top: 2%;
+        margin-top: 4rem;
       }
     }
 

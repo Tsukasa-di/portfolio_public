@@ -72,3 +72,13 @@ button {
 .dg.ac {
   z-index: 9999 !important;
 }
+
+::-moz-selection {
+  color: map.get(global.$color, _black);
+  background-color: map.get(global.$color, _white);
+}
+
+::selection {
+  color: map.get(global.$color, _black);
+  background-color: map.get(global.$color, _white);
+}

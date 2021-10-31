@@ -10,8 +10,8 @@ const pointer = new THREE.Vector2();
 let mouseMove = false;
 function onMouseMove(event) {
   mouseMove = true;
-  pointer.x = (event.x / SCREEN.WIDTH()) * 2 - 1;
-  pointer.y = -(event.y / SCREEN.HEIGHT()) * 2 + 1;
+  pointer.x = (event.x / innerWidth) * 2 - 1;
+  pointer.y = -(event.y / innerHeight) * 2 + 1;
 }
 
 // ========================================

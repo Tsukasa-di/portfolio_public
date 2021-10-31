@@ -1,4 +1,5 @@
 @use "../../setting/app" as global;
+@use "sass:map";
 
 @mixin app() {
   .MODULES-swiper {
@@ -20,10 +21,21 @@
       display: flex;
     }
 
-    p {
+    p, span {
       @include global.traijan();
+      color: map.get(global.$color, _white);
       font-size: 4.0rem;
       font-weight: 300;
+      text-shadow: 0 0 10px map.get(global.$color, _white);
+      text-align: center;
+    }
+
+    p {
+      padding-top: 3.0rem;
+    }
+
+    span {
+      font-size: 2.5rem;
     }
   }
 }

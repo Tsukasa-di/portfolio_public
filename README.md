@@ -22,6 +22,7 @@
 - [SPA設計](/src/js/modules/transition)
 - [ページ個別スクリプトの処理設計](/src/js/modules/pages)
 - [Controller-開発補助機能](/src/js/controllers)
+- [その他のモジュール設計(README未完成)](/src/js/modules)
 
 ## Versions
 ``` bash

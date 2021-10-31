@@ -101,6 +101,7 @@
     align-items: center;
     // skin
     background-color: map.get(global.$color, _white);
+    border: 1px solid map.get(global.$color, _white);
     color: map.get(global.$color, _black);
     border-radius: 10px;
     text-decoration: none;
@@ -132,7 +133,7 @@
       background-color: transparent;
 
       img {
-        opacity: 0;
+        background-color: map.get(global.$color, _white);
       }
     }
   }
