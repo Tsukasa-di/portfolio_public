@@ -33,8 +33,8 @@ function StaticDest(cb) {
     .src(paths.src + '/favicon.ico')
     .pipe(gulp.dest(paths.public + '/'))
   gulp
-    .src([paths.src + '/contents/**/*.json'])
-    .pipe(gulp.dest(paths.public + '/contents/'))
+    .src([paths.src + '/**/*.json'])
+    .pipe(gulp.dest(paths.public + '/'))
   gulp
     .src([paths.src + '/assets/**/*.mp3'])
     .pipe(gulp.dest(paths.public + '/assets'))
