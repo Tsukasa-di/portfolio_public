@@ -1,0 +1,19 @@
+@use "../../settings/settings.scss" as setting;
+@use "sass:map";
+
+#BG {
+  @include setting.absolute();
+  z-index: 0;
+
+  @include setting.sp-layout() {
+    opacity: 0;
+  }
+
+  .light {
+    @include setting.absolute();
+    border-radius: 50%;
+    background: radial-gradient(#B1221A, transparent, transparent, transparent);
+    width: 1400px;
+    height: 1400px;
+  }
+}

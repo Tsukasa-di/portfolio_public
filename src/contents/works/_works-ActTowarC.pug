@@ -1,0 +1,19 @@
+include ../../templates/_components/works/_work-title.pug
+include ../../templates/_components/works/_work-mv.pug
+
+mixin modal-works-ActTowarC(work)
+  .modal(id=work.id)
+    +work-title(work)
+    section 
+      +work-mv(work, "実績開示の都合上デザインデータでの掲載となります")
+      article 
+        p 
+          | 人材マッチングサービス事業を行っている会社「Act.TowarC. Inc.」様のリクルート特設サイトを制作させていただきました。
+          <br><br>
+          | 「動き出せ。（Act.）クリエイターの道（Creator）へ向かって（Toward）」をミッションに掲げており、クリエイターを導く「マーケター、エンジニア、デザイナー、キャリアアドバイザー」の職種を採用募集するためのサイトとなります。
+          <br><br>
+          | ミッションや社風の雰囲気を出すため、「個性が溢れるユニークなデザイン」「異なる職種同士でも意気投合して仕事をする楽しさ」「クリエイティブ要素」を主軸となるデザインにしてまいりました。
+      article 
+        img(src="../assets/images/works/works_ActTowarC_pickup_lead.png") 
+        img(src="../assets/images/works/works_ActTowarC_pickup_jobs.png") 
+        img(src="../assets/images/works/works_ActTowarC_pickup_people.png")  

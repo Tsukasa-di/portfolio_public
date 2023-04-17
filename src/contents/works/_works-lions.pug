@@ -1,0 +1,37 @@
+include ../../templates/_components/works/_work-title.pug
+include ../../templates/_components/works/_work-mv.pug
+
+mixin modal-works-lions(work)
+  .modal(id=work.id)
+    +work-title(work)
+    section 
+      +work-mv(work)
+      article 
+        p 
+          | <a class="CURSOR_HOVER inline-link" href="http://www.snowrobin.jp/" target="_blank">Snow Robin Inc.</a>に在籍しながら、プロ野球公式サイトの運用保守ディレクターをご担当いたしました。
+          <br><br>
+          | 計5名のWEBコーダーメンバーのリーダーとして、年間契約で日々のニュース更新やページ制作、特設サイト制作まで幅広く対応させていただき、長期的で安定した利益貢献をしてまいりました。
+      article 
+        h3 特設サイト制作プロジェクト
+        a(href="https://www.seibulions.jp/special/thanks/" target="_blank" class="CURSOR_HOVER inline-link")
+          img(src="assets/images/works/works_lions_thanks.png")
+          p(style="text-align: right; font-weight: bold;") LIONS THANKS FESTA 特設サイト制作
+        p 
+          | 特設サイト制作の際には、コーダーメンバーで効率的で保守性の良い実装をするために、GitHubでのタスク管理やテンプレートエンジンを使ったコンポーネント設計を徹底しました。
+          <br><br>
+          | どんな環境でも「可読性 / 拡張性 / 再利用性」の3本柱を心掛けて、制作や保守管理を行うようにしています。
+      article 
+        h3 公式サイト保守の問題解決
+        img(src="assets/images/works/works_lions_mind.png")
+        p 
+          | 西武ライオンズ様は、1日に約3件のニュース公開が必要で、非常に更新頻度が高く、下記のような問題点がありました。
+        ul 
+          li ニュース更新数が増えるほど開発環境を圧迫
+          li 効率の良い制作方法がニュース担当者の経験や慣れに依存
+        p 
+          | 私が在籍中に、下記のように問題解決ができるよう貢献させていただきました。
+        ul 
+          li 公開するニュースに必要なファイルだけを処理対象にできるように開発環境を整備
+          li 誰でも効率よく制作できるように、再利用可能なテンプレコードを共有
+        p 
+          | 実際にコストパフォーマンスが良くなり、メンバー全体の制作効率向上につながりました。

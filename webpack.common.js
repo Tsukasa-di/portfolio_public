@@ -1,29 +1,28 @@
-const path = require('path');
-const works = require('./src/contents/works/list.json');
-const Fiber = require('fibers');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { ProvidePlugin } = require('webpack');
-
+const path = require('path');
+const data = {};
+data.works = require('./src/data/works-list.json');
 const pugs = [
   {
-    template: 'template/index',
+    template: 'templates/index',
     filename: 'index',
     inject: true
   },
   {
-    template: 'template/about/index',
-    filename: 'about/index',
+    template: 'templates/about',
+    filename: 'about',
     inject: true
   },
   {
-    template: 'template/works/index',
-    filename: 'works/index',
+    template: 'templates/works',
+    filename: 'works',
     inject: true
   },
   {
-    template: 'template/opening/index',
-    filename: 'opening/index',
+    template: 'templates/contact',
+    filename: 'contact',
     inject: true
   }
 ];
@@ -34,21 +33,20 @@ const plugins = [
   }),
   new ProvidePlugin({
     THREE: 'three'
-  }),
+  })
 ];
 
 pugs.forEach( pug => {
   plugins.push(
     new HtmlWebpackPlugin({
+      scriptLoading: false,
       template: './src/' + pug.template + '.pug',
       filename: pug.filename + '.html',
-      inject: pug.inject ? 'body' : null,
-      data: {
-        works: works
-      }
-    })
+      inject: pug.inject ? 'head' : null,
+      data: data
+    }),
   )
-})
+});
 
 module.exports = {
   entry: {
@@ -61,22 +59,16 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.s[ac]ss$/i,
-        use: [
-          // { loader: 'style-loader' },
-          MiniCssExtractPlugin.loader,
-          { loader: 'css-loader' },
-          'postcss-loader', // ./postcss.config.js
-          {
-            loader: 'sass-loader',
-            options: {
-              implementation: require('sass'),
-              sassOptions: {
-                fiber: Fiber,
-              },
-            }
+        test: /\.m?js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: [
+              ['@babel/preset-env', { targets: "defaults" }]
+            ]
           }
-        ]
+        }
       },
       {
         test: /\.(png|jpe?g|gif|woff2?|ttf|eot)$/,
@@ -85,15 +77,10 @@ module.exports = {
             loader: 'file-loader',
             options: {
               name: `[name].[ext]`,
-              outputPath: 'common/images',
-              publicPath: 'common/images'
+              outputPath: 'assets/images'
             }
           },
         ],
-      },
-      {
-        test: /\.svg$/,
-        loader: 'svg-inline-loader'
       },
       {
         test: /\.pug$/,
@@ -105,28 +92,25 @@ module.exports = {
             }
           }
         ]
-      }
+      },
+      {
+        test: /\.s[ac]ss$/i,
+        use: [
+          MiniCssExtractPlugin.loader,
+          { loader: 'css-loader' },
+          'postcss-loader', // ./postcss.config.js
+          {
+            loader: 'sass-loader',
+            options: {
+              implementation: require('sass'),
+              // sassOptions: {
+              //   fiber: Fiber,
+              // },
+            }
+          }
+        ]
+      },
     ]
   },
-  plugins: plugins,
-  optimization: {
-    splitChunks: {
-      chunks: 'all',
-      minSize: 0,
-      // minRemainingSize: 0,
-      // minChunks: 1,
-      // maxAsyncRequests: 30,
-      // maxInitialRequests: 30,
-      // enforceSizeThreshold: 50000,
-      cacheGroups: {
-        defaultVendors: {
-          test: /[\\/]node_modules[\\/]/,
-          // priority: -10,
-          name: './venders',
-          // reuseExistingChunk: true,
-        },
-        default: false
-      },
-    },
-  },
+  plugins: plugins
 }

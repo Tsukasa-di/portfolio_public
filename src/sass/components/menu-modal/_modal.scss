@@ -1,0 +1,91 @@
+@use "../../settings/settings.scss" as setting;
+@use "sass:map";
+@use "./modal-detail" as modal-detail;
+
+@mixin app() {
+
+#MODAL {
+  z-index: 1;
+  pointer-events: none;
+  padding: 0;
+
+  @include modal-detail.app();
+
+  > .inner {
+    opacity: 0;
+    width: 80%;
+    height: 85%;
+    overflow-y: scroll;
+    margin: 0 auto;
+    margin-top: 100px;
+    @include setting.scrollbar-none();
+
+    @include setting.sp-layout() {
+      width: 100%;
+      padding: 0 20px;
+      margin-top: 60px;
+    }
+  }
+
+  .button {
+    position: absolute;
+    z-index: 1;
+    top: 30px;
+    right: 100px;
+    width: 150px;
+    height: 40px;
+    background-color: map.get(setting.$color, "basic_text");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+
+    @include setting.sp-layout() {
+      top: 15px;
+      left: unset;
+      right: 20px;
+      width: 100px;
+      height: 30px;
+    }
+  
+    .inner {
+      width: 35px;
+      height: 14px;
+      position: relative;
+      margin-bottom: 3px;
+
+      @include setting.sp-layout() {
+        width: 30px;
+        height: 11px;
+      }
+    }
+  
+    span {
+      @include setting.absolute();
+      top: 6px;
+      display: block;
+      background-color: map.get(setting.$color, "basic_base");
+      width: 35px;
+      height: 3px;
+      transition: all map.get(setting.$values, "transition");
+      transform: rotate(45deg);
+
+      @include setting.sp-layout() {
+        width: 30px;
+        height: 3px;
+      }
+  
+      &:last-child {
+        transform: rotate(-45deg);
+
+        @include setting.sp-layout() {
+          top: 5px;
+        }
+      }
+    }
+  }
+}
+
+// ---------
+// end mixin
+}

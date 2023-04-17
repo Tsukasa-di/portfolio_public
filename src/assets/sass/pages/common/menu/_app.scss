@@ -1,7 +1,0 @@
-@use "../../../setting/app" as global;
-@use "sass:map";
-@use "./menu" as menu;
-
-.MODULES-menu {
-  @include menu.app();
-}

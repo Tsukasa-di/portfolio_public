@@ -1,0 +1,21 @@
+include ../../templates/_components/works/_work-title.pug
+include ../../templates/_components/works/_work-mv.pug
+
+mixin modal-works-tbs(work)
+  .modal#MODAL_WORKS_TBS
+    +work-title(work)
+    section 
+      +work-mv(work, "チームの実績開示のルールにより学校名や写真は架空のものに差し替えたデザインデータとなります")
+      article 
+        p 
+          | 美容学校のカリキュラムが生まれ変わることを告知するために、【LP制作 / リーフレット制作 / 広告運用】をチームで担当させていただき、そのうちLP制作のWEB制作ディレクションからデザインまで参画させていただきました。
+          <br><br>
+          | チームメンバーと一緒に私の方でヒアリングさせていただき、お客様からのご要望として「技術力を高める意欲のある学生を集めたい」「カリキュラム進化という学校の変化を期待感のある印象で伝えたい」などを伺いました。
+          <br><br>
+          | デザインの方向性をしっかりすり合わせるために制作定義書やトーン・マナーを設計し、「技術力 / キレイな華やかさ / 期待感」といった印象を与えられるデザインに仕上げてまいりました。
+        .links
+          a.link.CURSOR_HOVER(href="https://xd.adobe.com/view/a00e6e02-5ef8-4298-819a-cfcc24293a70-f55d/" target="_blank") 制作定義書
+      article 
+        img(src="../assets/images/works/works_tbs_pickup_lead.png") 
+        img(src="../assets/images/works/works_tbs_pickup_executive.png") 
+        img(src="../assets/images/works/works_tbs_pickup_license.png") 

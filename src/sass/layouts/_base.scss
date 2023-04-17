@@ -1,0 +1,11 @@
+@use "./base/bg";
+@use "./base/contents";
+@use "./base/global-wrap";
+@use "./base/loading";
+@use "./base/stage";
+@use "./base/ui";
+@use "./base/pointer";
+
+#POINTER, #OPENING, #UI, #GLOBAL_WRAP {
+  opacity: 0;
+}

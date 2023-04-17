@@ -1,0 +1,77 @@
+@use "../../settings/settings.scss" as setting;
+@use "sass:map";
+
+#LOADING {
+  @include setting.fullscreen();
+  z-index: 9999;
+  background-color: map.get(setting.$color, "basic_base");
+  cursor: cell;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  * {
+    cursor: cell;
+  }
+
+  .text {
+    width: 100%;
+    align-items: left;
+    font-size: 1.6rem;
+    letter-spacing: 0.2rem;
+    padding-left: 10px;
+
+    @include setting.sp-layout() {
+      font-size: 1.4rem;
+    }
+  }
+
+  .load-cancel-mask {
+    @include setting.fullscreen();
+    z-index: 9;
+    background-color: map.get(setting.$color, "basic_base");
+    opacity: 0;
+  }
+
+  .loading-bar {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    .wrap {
+      position: relative;
+      height: 7px;
+      width: 100%;
+      border: 1px solid map.get(setting.$color, "basic_text");
+    }
+
+    .bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 5px;
+      width: 0px;
+      background-color: map.get(setting.$color, "basic_text");
+    }
+  }
+
+  .program {
+    color: map.get(setting.$color, "assistant_program");
+    font-size: 1.4rem;
+    letter-spacing: 0.2rem;
+    max-width: 500px;
+
+    @include setting.sp-layout() {
+      font-size: 1.2rem;
+    }
+  }
+
+  .title {
+    @include setting.absolute();
+    top: unset;
+    bottom: 20px;
+    left: 20px;
+    @include setting.font_garamond();
+  }
+}

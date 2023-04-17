@@ -1,0 +1,21 @@
+include ./works/_works-tbs.pug
+include ./works/_works-lions.pug
+include ./works/_works-yachiyo.pug
+include ./works/_works-international-student.pug
+include ./works/_works-tosuigei.pug
+include ./works/_works-ActTowarC.pug
+
+mixin modal-works()
+  each work in GLOBAL.works
+    if work.id === 'MODAL_WORKS_TBS'
+      +modal-works-tbs(work)
+    if work.id === 'MODAL_WORKS_LIONS'
+      +modal-works-lions(work)
+    if work.id === 'MODAL_WORKS_YACHIYO'
+      +modal-works-yachiyo(work)
+    if work.id === 'MODAL_WORKS_TOSUIGEI'
+      +modal-works-tosuigei(work)
+    if work.id === 'MODAL_WORKS_ActTowarC'
+      +modal-works-ActTowarC(work)
+    if work.id === 'MODAL_WORKS_INTERNATIONAL_STUDENT'
+      +modal-works-international-student(work)

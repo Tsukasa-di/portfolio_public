@@ -1,0 +1,17 @@
+mixin work(work)
+  div(
+    class="work-item CURSOR_HOVER CURSOR_CLICK MODAL_BUTTON"
+    data-modal=work.id
+  )
+    .image 
+      img(src='../assets/images/works/' + work.img)
+    p.title_ja #{work.title_ja}
+    p.title_en #{work.title_en}
+    .category 
+      - for (let i = 0; i < work.category.length; i++ ) {
+      -   if (work.category.length - 1 == i) {
+        p #{work.category[i]}
+      -   } else {
+        p #{work.category[i]}、
+      -   }
+      - }

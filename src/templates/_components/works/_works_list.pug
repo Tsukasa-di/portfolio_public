@@ -1,0 +1,6 @@
+include _work-item.pug 
+
+mixin works-list(list)
+  .works-list 
+    each item in list 
+      +work(item)

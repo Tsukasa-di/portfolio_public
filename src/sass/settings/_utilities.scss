@@ -1,0 +1,22 @@
+@use "../settings/settings" as setting;
+@use "sass:map";
+
+.pc-only {
+  @include setting.pc-layout() {
+    display: block !important;
+  }
+
+  @include setting.sp-layout() {
+    display: none !important;
+  }
+}
+
+.sp-only {
+  @include setting.pc-layout() {
+    display: none !important;
+  }
+
+  @include setting.sp-layout() {
+    display: block !important;
+  }
+}

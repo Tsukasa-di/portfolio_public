@@ -1,0 +1,20 @@
+@use "../settings/settings" as setting;
+@use "sass:map";
+
+body.CONTACT {
+  section {
+    height: 50%;
+
+    @include setting.sp-layout() {
+      height: auto;
+    }
+
+    &.title {
+      height: 100%;
+    }
+  }
+
+  .attention {
+    letter-spacing: 0.2rem;
+  }
+}

@@ -1,83 +1,136 @@
-import { AUDIOS, SCREEN } from "../../modules/global/variables";
+import { DOM } from "../../global/dom";
+import { AUDIOS, STATUS } from "../../global/objects";
+import { SCREEN } from "../../global/screen";
+import { OP } from "../operator/app";
 
 export class Cursor {
-  constructor() {
-    this.DOM;
+  constructor(hovers, clicks) {
+    this.dom = {}
+    this.classes = {
+      hovers: hovers,
+      clicks: clicks
+    }
+    this.eventType = window.ontouchstart ? 'touchstart' : 'click';
+    this.events = {};
     this.vals = {
       target: {
-        bottom: 0,
-        left: 0
+        light: {
+          left: 0,
+          top: 0
+        },
+        pointer: {
+          left: 0,
+          top: 0
+        },
+        outer: {
+          left: 0,
+          top: 0
+        }
       },
       current: {
-        bottom: 0,
-        left: 0
+        light: {
+          left: 0,
+          top: 0
+        },
+        pointer: {
+          left: 0,
+          top: 0
+        },
+        outer: {
+          left: 0,
+          top: 0
+        }
       }
-    };
-    this.eventType = window.ontouchstart ? 'touchstart' : 'click';
+    }
   }
 
-/*
-  this.DOMのサンプル
-  DOM = {
-    UI: document.querySelector('.MODULES-cursor'),
-    cursor: document.querySelector('.MODULES-cursor .cursor'),
-    hovers: document.querySelectorAll('.CURSOR--hover'),
-    pointer: document.querySelector('.MODULES-cursor .pointer'),
-    pointerWrap: document.querySelector('.MODULES-cursor .pointer-wrap'),
-  };
-*/
-
-  init(DOM) {
-    this.DOM = DOM;
-    document.body.style.cursor = 'none';
-    this.DOM.UI.style.opacity = 1;
-    this._hover();
-    this._click();
-    this._transform.bind({ m: this, size: 1.0, opacity: .9, color: '#fff' })();
+  init() {
+    this.dom.light = DOM.GLOBAL_WRAP.BG.light;
+    this.dom.pointer = DOM.POINTER.pointer;
+    this.dom.outer = DOM.POINTER.outer;
+    this._domSet();
+    OP.node.on(document, 'mousemove', this._onMouseMove.bind(this), false);
+    this._eventRegistor();
+    this._animate();
+    this._hover('on');
+    this._click('on');
   }
 
-  addClass(targets, className) {
-    targets.forEach( el => {
-      el.classList.add(className);
-    });
+  update() {
+    this._domSet();
+    this._hover('off');
+    this._click('off'); 
+    this._hover('on');
+    this._click('on');
   }
 
-  _hover() {
-    if (this.DOM.hovers) {
-      this.DOM.hovers.forEach(el => {
-        el.addEventListener('mouseenter', this._transform.bind({ m: this, size: 1.85, opacity: .2, color: '#CF70CB' }));
-        el.addEventListener('mouseleave', this._transform.bind({ m: this, size: 1.0, opacity: .9, color: '#fff' }));
+  _domSet() {
+    if (this.classes.hovers) this.dom.hovers = OP.node.qsAll('.' + this.classes.hovers);
+    if (this.classes.clicks) this.dom.clicks = OP.node.qsAll('.' + this.classes.clicks);
+  }
+
+  _eventRegistor() {
+    const inst = this;
+    this.events.mouseenter = () => inst._transform.bind({ m: inst, size: 2.5, type: 'enter' })();
+    this.events.mouseleave = () => inst._transform.bind({ m: inst, size: 1.0, type: 'leave' })();
+    this.events.click = event => {
+      if (!event.target.classList.value.includes('MENU_BUTTON')) if (STATUS.audio.active) AUDIOS.click.play();
+    }
+  }
+
+  _culc(name, vals, duration) {
+    if (duration) {
+      vals.current[name].left += (vals.target[name].left - vals.current[name].left) * duration;
+      vals.current[name].top += (vals.target[name].top - vals.current[name].top) * duration;
+      this.dom[name].style.left = vals.current[name].left + 'px';
+      this.dom[name].style.top = vals.current[name].top + 'px';
+    } else {
+      this.dom[name].style.left = vals.target[name].left + 'px';
+      this.dom[name].style.top = vals.target[name].top  + 'px';
+    }
+  }
+
+  _animate() {
+    if (STATUS.cursor.light) {
+      this._culc('light', this.vals, 0.05);
+      this.dom.light.style.opacity = 1;
+    } else this.dom.light.style.opacity = 0;
+    this._culc('pointer', this.vals, 0.4);
+    this._culc('outer', this.vals, 0.1);
+    requestAnimationFrame(this._animate.bind(this));
+  }
+
+  _onMouseMove(event) {
+    this.vals.target.light.left = event.x - 700;
+    this.vals.target.light.top = event.y - 700;
+    this.vals.target.pointer.left = event.x - 10;
+    this.vals.target.pointer.top = event.y - 10;
+    this.vals.target.outer.left = event.x - 25;
+    this.vals.target.outer.top = event.y - 25;
+  }
+
+  _hover(type) {
+    if (this.dom.hovers) {
+      this.dom.hovers.forEach( el => {
+        OP.node[type](el, 'mouseenter', this.events.mouseenter);
+        OP.node[type](el, 'mouseleave', this.events.mouseleave);
+      });
+    }
+  }
+
+  _click(type) {
+    if (this.dom.clicks) {
+      this.dom.clicks.forEach( el => {
+        OP.node[type](el, this.eventType, this.events.click);
       });
     }
   }
 
   _transform() {
-    this.m.DOM.pointer.style.backgroundColor = this.color;
-    this.m.DOM.pointer.style.opacity = this.opacity;
-    this.m.DOM.pointer.style.transform = 'scale(' + this.size + ')';
-    this.m.DOM.pointerWrap.style.transform = 'scale(' + this.size + ')';
-  }
-
-  _click() {
-    if (!SCREEN.TABLET()) document.querySelectorAll('.CURSOR--click').forEach(el => {
-      el.addEventListener(this.eventType, () => {
-        AUDIOS.ui.click.play();
-      });
-    });
-  }
-
-  animate(pointer) {
-    this.vals.target.bottom = (pointer.y + 0.9665)/2 * 100;
-    this.vals.current.bottom += (this.vals.target.bottom - this.vals.current.bottom) * 0.18;
-    this.vals.target.left = (pointer.x + 0.987)/2 * 100;
-    this.vals.current.left += (this.vals.target.left - this.vals.current.left) * 0.18;
-
-    this.DOM.cursor.style.bottom = this.vals.current.bottom + '%';
-    this.DOM.cursor.style.left = this.vals.current.left + '%';
-  }
-
-  off() {
-    this.DOM.pointerWrap.style.opacity = 0;
-    this.DOM.pointerWrap.style.pointerEvents = 'none';
+    this.m.dom.pointer.style.transform = 'scale(' + this.size + ')';
+    this.m.dom.outer.style.transform = 'scale(' + this.size + ')';
+    if (this.type == 'enter') setTimeout(() => {
+      if (STATUS.audio.active) AUDIOS.hover.play();
+    }, 1.0);
   }
 }

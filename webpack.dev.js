@@ -1,15 +1,15 @@
 const path = require('path');
 const { merge } = require('webpack-merge');
-const commonConfig = require('./webpack.common');
+const common = require('./webpack.common.js');
 
-module.exports = merge(commonConfig, {
+module.exports = merge(common, {
   mode: 'development',
   devtool: 'source-map',
   devServer: {
     static: {
       directory: path.join(__dirname, 'public'),
     },
-    hot: false,
-    liveReload: false,
+    hot: true,
+    liveReload: true,
   }
 });

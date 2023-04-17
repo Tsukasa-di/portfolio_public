@@ -1,7 +1,0 @@
-@use "./contents/contents" as contents;
-@use "./ui/trigger" as ui;
-
-.MODULES-slider {
-  @include contents.slide();
-  @include ui.tritters();
-}

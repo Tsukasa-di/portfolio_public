@@ -1,0 +1,42 @@
+@use "../../settings/settings.scss" as setting;
+@use "sass:map";
+
+#POINTER {
+  @include setting.fullscreen();
+  z-index: 999;
+  pointer-events: none;
+
+  .pointer-area {
+    @include setting.fullscreen();
+    z-index: 9;
+    pointer-events: none;
+
+    @include setting.sp-layout() {
+      display: none;
+    }
+
+    .pointer {
+      @include setting.absolute();
+      transition: transform map.get(setting.$values, "transition");
+      width :20px;
+      height: 20px;
+      border-radius: 50%;
+      backdrop-filter: invert(100%);
+      pointer-events: none;
+    }
+
+    .pointer-outer {
+      @include setting.absolute();
+      transition: transform map.get(setting.$values, "transition");
+      width :50px;
+      height: 50px;
+      border: 1px solid map.get(setting.$color, "basic_text");
+      border-radius: 50%;
+      pointer-events: none;
+    }
+  }
+}
+
+.CURSOR_HOVER *, .CURSOR_CLICK * {
+  pointer-events: none;
+}

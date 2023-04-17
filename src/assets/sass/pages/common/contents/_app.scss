@@ -1,7 +1,0 @@
-@use "./firstview" as firstview;
-@use "./section" as section;
-
-.CONTENTS {
-  @include firstview.app();
-  @include section.app();
-}

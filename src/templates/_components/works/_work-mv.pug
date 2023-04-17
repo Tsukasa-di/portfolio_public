@@ -1,0 +1,7 @@
+mixin work-mv(work, attention)
+  article.mv
+    img(src="../assets/images/works/" + work.img)
+    a.site-link.CURSOR_HOVER(href=work.url target="_blank") View Site
+      .border
+    if attention
+      p.attention(style="text-align: center;") ※<br>#{attention}

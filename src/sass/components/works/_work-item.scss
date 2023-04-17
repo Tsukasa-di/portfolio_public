@@ -1,0 +1,81 @@
+@use "../../settings/settings.scss" as setting;
+@use "sass:map";
+
+@mixin app() {
+
+.work-item {
+  width: 610px;
+  transition: all map.get(setting.$values, "transition");
+
+  @include setting.sp-layout() {
+    width: 100%;
+  }
+
+  > * {
+    width: 100%;
+  }
+
+  &:hover {
+    opacity: 0.5;
+  }
+
+  .image {
+    height: 345px;
+    margin-bottom: 20px;
+    overflow: hidden;
+
+    @include setting.sp-layout() {
+      height: auto;
+      width: 100%;
+    }
+
+    img {
+      width: auto;
+      height: 100%;
+
+      @include setting.sp-layout() {
+        height: auto;
+        width: 100%;
+      }
+    }
+  }
+
+  .title_ja {
+    font-size: 1.8rem;
+    @include setting.font_zen_mincho();
+    margin-bottom: 5px;
+    display: inline-block;
+    width: 100%;
+
+    @include setting.sp-layout() {
+      font-size: 1.4rem;
+    }
+  }
+
+  .title_en {
+    font-size: 1.4rem;
+    @include setting.font_garamond($style: italic);
+    margin-bottom: 25px;
+    display: inline-block;
+    width: 100%;
+
+    @include setting.sp-layout() {
+      font-size: 1.2rem;
+    }
+  }
+
+  .category {
+    display: flex;
+    flex-wrap: wrap;
+
+    p {
+      font-size: 1.2rem;
+      letter-spacing: 0.2rem;
+      @include setting.font_zen_gothic($weight: 500);
+    }
+  }
+}
+
+// ---------
+// end mixin
+}

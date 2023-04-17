@@ -1,0 +1,8 @@
+@use "../../settings/settings.scss" as setting;
+@use "sass:map";
+
+#UI {
+  @include setting.fullscreen();
+  z-index: 9;
+  pointer-events: none;
+}

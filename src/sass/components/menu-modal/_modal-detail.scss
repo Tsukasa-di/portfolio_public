@@ -1,0 +1,158 @@
+@use "../../settings/settings.scss" as setting;
+@use "sass:map";
+
+@mixin app() {
+
+section {
+  @include setting.sp-layout() {
+    padding: 0;
+  }
+
+  &.title {
+    width: 100%;
+    margin-top: 120px;
+    margin-bottom: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include setting.sp-layout() {
+      font-size: 7rem;
+    }
+
+    .copy {
+      font-size: 14.0rem;
+      @include setting.font_garamond($style: italic);
+      margin-bottom: 70px;
+
+      @include setting.sp-layout() {
+        font-size: 7rem;
+      }
+    }
+
+    .title_en {
+      font-size: 2.8rem;
+      @include setting.font_garamond($style: italic);
+      margin-bottom: 10px;
+      text-align: center;
+      display: inline-block;
+      width: 100%;
+
+      @include setting.sp-layout() {
+        font-size: 1.8rem;
+      }
+    }
+    
+    .title_ja {
+      font-size: 1.8rem;
+      @include setting.font_zen_mincho();
+      margin-bottom: 70px;
+      text-align: center;
+      display: inline-block;
+      width: 100%;
+
+      @include setting.sp-layout() {
+        font-size: 1.2rem;
+      }
+    }
+  }
+}
+
+article {
+  max-width: 960px;
+  margin: 0 auto;
+  margin-bottom: 150px;
+
+  @include setting.sp-layout() {
+    margin-bottom: 120px;
+  }
+
+  > * {
+    margin-bottom: 50px;
+
+    @include setting.sp-layout() {
+      margin-bottom: 30px;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  p {
+    line-height: 2.2;
+    letter-spacing: 0.2rem;
+  }
+
+  &.mv {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .site-link {
+    text-align: center;
+    font-size: 2.4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include setting.font_garamond($weight: 700);
+    margin-bottom: 15px;
+
+    @include setting.sp-layout() {
+      font-size: 2rem;
+    }
+
+    .border {
+      width: 50px;
+      height: 1px;
+      margin-top: 20px;
+      background-color: map.get(setting.$color, "basic_text");
+      transition: map.get(setting.$values, "transition");
+
+      @include setting.sp-layout() {
+        margin-top: 10px;
+      }
+    }
+
+    &:hover {
+      .border {
+        width: 100%;
+      }
+    }
+  }
+
+  .attention {
+    font-size: 1.2rem;
+
+    @include setting.sp-layout() {
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+  }
+
+  .link {
+    text-decoration: underline;
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 10px;
+
+    &:before {
+      content: '';
+      height: 2px;
+      width: 10px;
+      margin-right: 10px;
+      background-color: map.get(setting.$color, "basic_text");
+      transition: map.get(setting.$values, "transition");
+    }
+
+    &:hover {
+      &:before {
+        width: 20px;
+      }
+    }
+  }
+}
+
+// ---------
+// end mixin
+}

@@ -4,7 +4,7 @@
 
 const DEL               = require('delete');
 const gulp              = require('gulp');
-const SITEMAP           = require('./src/js/_libs/gulp/sitemap');
+const SITEMAP           = require('./src/js/_libs/node_modules/sitemap');
 const IMAGEMIN          = require('gulp-imagemin');
 
 // //////////////////////////////
@@ -14,43 +14,38 @@ const IMAGEMIN          = require('gulp-imagemin');
 const paths = {
   src: './src',
   public: './public'
-};
+}
 
 // //////////////////////////////
 //  Clean
 // //////////////////////////////
 
 function Clean(cb) {
-  DEL([paths.public + '/*', '!' + paths.public + '/assets'], cb);
-};
+  DEL([paths.public + '/*']);
+  cb();
+}
 
 // //////////////////////////////
-//  StaticDest
+//  DestAssets
 // //////////////////////////////
 
-function StaticDest(cb) {
+function DestAssets(cb) {
   gulp
-    .src(paths.src + '/favicon.ico')
-    .pipe(gulp.dest(paths.public + '/'))
+    .src([paths.src + '/assets/**/*.{jpg,jpeg,png,gif,svg,mp3,wav}'])
+    .pipe(gulp.dest(paths.public + '/assets/'));
   gulp
-    .src([paths.src + '/**/*.json'])
-    .pipe(gulp.dest(paths.public + '/'))
-  gulp
-    .src([paths.src + '/assets/**/*.mp3'])
-    .pipe(gulp.dest(paths.public + '/assets'))
-  gulp
-    .src([paths.src + '/assets/models/**'])
-    .pipe(gulp.dest(paths.public + '/assets/models'))
+    .src([paths.src + '/data/*.json'])
+    .pipe(gulp.dest(paths.public + '/data/'));
   cb();
 };
 
 // //////////////////////////////
-//  MinifyImages
+//  ImageMin
 // //////////////////////////////
 
-function MinifyImages(cb) {
+function ImageMinify(cb) {
   gulp
-    .src([paths.src + '/assets/images/**/*.{jpg,jpeg,png,gif,svg}', '!' + paths.src + '/assets/models'])
+    .src([paths.src + '/assets/**/*.{jpg,jpeg,png,gif,svg}', '!' + paths.src + '/assets/models'])
     .pipe(IMAGEMIN([
       IMAGEMIN.gifsicle({ interlaced: true }),
       IMAGEMIN.mozjpeg({ quality: 75, progressive: true }),
@@ -62,7 +57,7 @@ function MinifyImages(cb) {
         ]
       })
     ]))
-    .pipe(gulp.dest(paths.public + '/assets/images'));
+    .pipe(gulp.dest(paths.public + '/assets/'));
   cb();
 };
 
@@ -81,14 +76,10 @@ function Sitemap(cb) {
 
 exports.default = gulp.series(
   Clean,
-  Sitemap,
-  StaticDest
-);
-
-exports.images = gulp.series(
-  MinifyImages
-);
-
-exports.sitemap = gulp.series(
+  DestAssets,
   Sitemap
+);
+
+exports.assets = gulp.series(
+  DestAssets
 );

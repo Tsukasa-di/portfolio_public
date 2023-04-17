@@ -1,0 +1,14 @@
+@use "../settings/settings.scss" as setting;
+@use "sass:map";
+@use "./menu-modal/common" as common;
+@use "./menu-modal/menu" as menu;
+@use "./menu-modal/modal" as modal;
+@use "./menu-modal/toggle" as toggle;
+
+#MENU, #MODAL {
+  @include common.app();
+}
+
+@include menu.app();
+@include modal.app();
+@include toggle.app();

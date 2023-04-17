@@ -1,52 +1,47 @@
 {
-  "name": "web-gl",
+  "name": "portfolio_ver3",
   "version": "1.0.0",
-  "description": "WebGL開発環境",
-  "main": "gulpfile.js",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "dev": "npx gulp && npx webpack-dev-server --config ./webpack.dev.js",
-    "build": "npx gulp && npx webpack --config ./webpack.prod.js",
-    "images": "npx gulp images",
-    "sitemap": "npx gulp sitemap"
+    "dev": "npx gulp && npx webpack-dev-server --config ./webpack.dev.js && npx gulp assets",
+    "build": "npx gulp && npx webpack --config ./webpack.prod.js && npx gulp assets",
+    "assets": "npx gulp assets"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Tsukasa-di/web-gl.git"
-  },
-  "author": "Tsukasa Tomioka",
+  "repository": "git+https://github.com/Tsukasa-di/portfolio_ver3.git",
+  "author": "TSUKASA TOMIOKA",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Tsukasa-di/web-gl/issues"
+    "url": "https://github.com/Tsukasa-di/portfolio_ver3/issues"
   },
-  "homepage": "https://github.com/Tsukasa-di/web-gl#readme",
+  "homepage": "https://github.com/Tsukasa-di/portfolio_ver3#readme",
+  "dependencies": {
+    "gsap": "^3.11.5",
+    "yarn": "^1.22.19"
+  },
   "devDependencies": {
-    "@babel/core": "^7.14.6",
-    "@babel/preset-env": "^7.14.7",
-    "autoprefixer": "^10.3.1",
-    "babel-loader": "^8.2.2",
-    "css-loader": "^6.1.0",
-    "dat.gui": "^0.7.7",
+    "@babel/core": "^7.21.3",
+    "@babel/preset-env": "^7.20.2",
+    "autoprefixer": "^10.4.14",
+    "babel-loader": "^9.1.2",
+    "css-loader": "^6.7.3",
     "delete": "^1.1.0",
-    "fibers": "^5.0.0",
     "file-loader": "^6.2.0",
-    "fs": "0.0.1-security",
-    "glob": "^7.1.7",
     "gulp": "^4.0.2",
-    "gulp-imagemin": "^7.1.0",
-    "html-webpack-plugin": "^5.3.2",
-    "mini-css-extract-plugin": "^2.1.0",
-    "path": "^0.12.7",
-    "postcss-loader": "^6.1.1",
+    "gulp-imagemin": "7.1.0",
+    "html-webpack-plugin": "^5.5.0",
+    "lil-gui": "^0.18.1",
+    "mini-css-extract-plugin": "^2.7.5",
+    "postcss-loader": "^7.1.0",
     "pug": "^3.0.2",
     "pug-loader": "^2.4.0",
-    "sass": "^1.32.8",
-    "sass-loader": "^12.1.0",
-    "stats.js": "^0.17.0",
-    "svg-inline-loader": "^0.8.2",
-    "three": "^0.130.0",
-    "webpack": "^5.45.1",
-    "webpack-cli": "^4.7.2",
-    "webpack-dev-server": "^4.1.0",
+    "sass": "^1.60.0",
+    "sass-loader": "^13.2.2",
+    "three": "^0.150.1",
+    "tone": "^14.7.77",
+    "webpack": "^5.77.0",
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^4.13.1",
     "webpack-merge": "^5.8.0"
   }
 }

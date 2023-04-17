@@ -1,0 +1,20 @@
+extends ./_layouts/_default.pug
+include ./_components/works/_works_list.pug
+
+block Setting 
+  -
+    STATUS.page = 'WORKS';
+    CLASS.body = 'WORKS SINGLE'
+
+block Contents 
+  #SCROLL_AREA
+    section.title 
+      .inner
+        p WORKS
+        .COMP-UI-scroll-navigation 
+          .arrow 
+            span 
+            span
+    section
+      include ./_components/works/_works_list.pug
+      +works-list(GLOBAL.works)

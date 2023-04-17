@@ -1,0 +1,26 @@
+@use "../../settings/settings.scss" as setting;
+@use "sass:map";
+
+.COMP-UI-scroll-navigation {
+  width: 55px;
+  height: 30px;
+
+  .arrow {
+    position: relative;
+
+    span {
+      position: absolute;
+      top: 10px;
+      display: block;
+      background-color: map.get(setting.$color, "basic_text");
+      width: 30px;
+      height: 3px;
+      transform: rotate(30deg);
+    }
+
+    span:last-child {
+      transform: rotate(-30deg);
+      left: 25px;
+    }
+  }
+}

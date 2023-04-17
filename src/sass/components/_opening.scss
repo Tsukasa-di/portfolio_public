@@ -1,0 +1,99 @@
+@use "../settings/settings.scss" as setting;
+@use "sass:map";
+
+#OPENING {
+  @include setting.fullscreen();
+  z-index: 99;
+  background-color: map.get(setting.$color, "basic_base");
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  @include setting.sp-layout() {
+    align-items: flex-start;
+    padding: 0 20px;
+  }
+
+  .hello {
+    line-height: 1.5;
+    color: map.get(setting.$color, "basic_text");
+    letter-spacing: 0.6rem;
+    font-size: 12.4rem;
+    margin: 30px 0 30px 20px;
+    @include setting.font_garamond($weight: 100, $style: italic);
+
+    @include setting.sp-layout() {
+      margin: 0 0 30px 0;
+      font-size: 11vw;
+      line-height: 1.0;
+    }
+  }
+
+  .button {
+    width: 100%;
+    font-size: 1.8rem;
+    letter-spacing: 0.2rem;
+    color: map.get(setting.$color, "basic_text");
+    @include setting.font_garamond($weight: 700);
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include setting.sp-layout() {
+      width: auto;
+      font-size: 1.4rem;
+      align-items: flex-start;
+      flex-direction: column-reverse;
+      border: 1px solid map.get(setting.$color, "basic_text");
+      border-radius: 5px;
+      padding: 5px 15px;
+    }
+    
+    .border {
+      width: 150px;
+      height: 1px;
+      margin-top: 20px;
+      background-color: map.get(setting.$color, "basic_text");
+      transition: map.get(setting.$values, "transition");
+
+      @include setting.sp-layout() {
+        display: none;
+      }
+    }
+
+    .text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      margin-bottom: 10px;
+      font-size: 2.4rem;
+
+      @include setting.sp-layout() {
+        font-size: 1.4rem;
+        margin-bottom: 0px;
+        flex-direction: row;
+        align-items: flex-start;
+      }
+
+      span {
+        display: inline-block;
+      }
+    }
+
+    &:hover {
+      .border {
+        width: 100%;
+      }
+    }
+  }
+
+  .attention {
+    color: map.get(setting.$color, "basic_text");
+    font-size: 1.2rem;
+    letter-spacing: 0.2rem;
+    font-weight: bold;
+  }
+}

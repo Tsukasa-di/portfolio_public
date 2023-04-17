@@ -1,0 +1,23 @@
+@use "../../settings/settings.scss" as setting;
+@use "sass:map";
+
+@mixin app() {
+
+.works-list {
+  max-width: 1300px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 80px;
+  row-gap: 160px;
+
+  @include setting.sp-layout() {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 100px;
+  }
+}
+
+// ---------
+// end mixin
+}

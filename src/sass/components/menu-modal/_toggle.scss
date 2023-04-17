@@ -1,0 +1,86 @@
+@use "../../settings/settings.scss" as setting;
+@use "sass:map";
+
+@mixin opened($name) {
+  ##{$name} {
+    opacity: 1;
+    pointer-events: visible;
+
+    > .inner, > .mask {
+      opacity: 1;
+      pointer-events: visible;
+    }
+
+    .button {
+      opacity: 1;
+    }
+  }
+
+  #GLOBAL_WRAP {
+    width: 70%;
+    height: 70%;
+    top: 15%;
+    left: 15%;
+    box-shadow: 0 0 30px map.get(setting.$color, "basic_text");
+
+    @include setting.sp-layout() {
+      width: 80%;
+      height: 80%;
+      top: 10%;
+      left: 10%;
+    }
+
+    #SCROLL_AREA {
+      backdrop-filter: none;
+    }
+  } 
+}
+
+@mixin app() {
+
+body.STATUS_MODAL_OPEN {
+  @include opened($name: "MODAL");
+}
+
+body.STATUS_MENU_OPEN {
+  @include opened($name: "MENU");
+}
+
+body.STATUS_MENU_OPEN {
+  #UI > #MENU > .button span {
+    top: 6px;
+    left: 7px;
+    transform: rotate(45deg);
+    width: 35px;
+
+    @include setting.sp-layout() {
+      width: 30px;
+      top: 5px;
+    }
+
+    &:last-child {
+      transform: rotate(-45deg);
+      width: 35px;
+
+      @include setting.sp-layout() {
+        width: 30px;
+      }
+    }
+  }
+}
+
+body.HOME {
+  #UI > #MENU > .button, #UI > #MENU > .title, #UI > #MENU > .contact {
+    opacity: 0;
+  }
+}
+
+body.HOME.STATUS_MENU_OPEN {
+  #UI > #MENU > .button, #UI > #MENU > .title, #UI > #MENU > .contact {
+    opacity: 1;
+  }
+}
+
+// ---------
+// end mixin
+}

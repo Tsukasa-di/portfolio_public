@@ -1,0 +1,82 @@
+Arguments: 
+  /Users/user/.anyenv/envs/nodenv/versions/18.15.0/bin/node /Users/user/.anyenv/envs/nodenv/versions/18.15.0/bin/yarn init
+
+PATH: 
+  /Users/user/.anyenv/envs/nodenv/versions/18.15.0/bin:/Users/user/.anyenv/envs/nodenv/libexec:/Users/user/.anyenv/envs/nodenv/plugins/nodenv-vars/bin:/Users/user/.anyenv/envs/nodenv/plugins/node-build/bin:/Users/user/.anyenv/envs/nodenv/shims:/Users/user/.anyenv/envs/nodenv/bin:/Users/user/.nodenv/shims:/Users/user/.pyenv/shims:/Users/user/.pyenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  18.15.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: canceled
+      at Interface.<anonymous> (/Users/user/.anyenv/envs/nodenv/versions/18.15.0/lib/node_modules/yarn/lib/cli.js:137150:13)
+      at Interface.emit (node:events:513:28)
+      at [_ttyWrite] [as _ttyWrite] (node:internal/readline/interface:1131:18)
+      at ReadStream.onkeypress (node:internal/readline/interface:270:20)
+      at ReadStream.emit (node:events:513:28)
+      at emitKeys (node:internal/readline/utils:357:14)
+      at emitKeys.next (<anonymous>)
+      at ReadStream.onData (node:internal/readline/emitKeypressEvents:64:36)
+      at ReadStream.emit (node:events:513:28)
+      at addChunk (node:internal/streams/readable:324:12)
+
+npm manifest: 
+  {
+    "name": "portfolio_ver3",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "dev": "npx gulp && npx webpack-dev-server --config ./webpack.dev.js && npx gulp assets",
+      "build": "npx gulp && npx webpack --config ./webpack.prod.js && npx gulp assets",
+      "assets": "npx gulp assets"
+    },
+    "repository": "git+https://github.com/Tsukasa-di/portfolio_ver3.git",
+    "author": "TSUKASA TOMIOKA",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/Tsukasa-di/portfolio_ver3/issues"
+    },
+    "homepage": "https://github.com/Tsukasa-di/portfolio_ver3#readme",
+    "dependencies": {
+      "gsap": "^3.11.5",
+      "yarn": "^1.22.19"
+    },
+    "devDependencies": {
+      "@babel/core": "^7.21.3",
+      "@babel/preset-env": "^7.20.2",
+      "autoprefixer": "^10.4.14",
+      "babel-loader": "^9.1.2",
+      "css-loader": "^6.7.3",
+      "delete": "^1.1.0",
+      "file-loader": "^6.2.0",
+      "gulp": "^4.0.2",
+      "gulp-imagemin": "7.1.0",
+      "html-webpack-plugin": "^5.5.0",
+      "lil-gui": "^0.18.1",
+      "mini-css-extract-plugin": "^2.7.5",
+      "postcss-loader": "^7.1.0",
+      "pug": "^3.0.2",
+      "pug-loader": "^2.4.0",
+      "sass": "^1.60.0",
+      "sass-loader": "^13.2.2",
+      "three": "^0.150.1",
+      "tone": "^14.7.77",
+      "webpack": "^5.77.0",
+      "webpack-cli": "^5.0.1",
+      "webpack-dev-server": "^4.13.1",
+      "webpack-merge": "^5.8.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

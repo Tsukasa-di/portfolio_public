@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Zen+Kaku+Gothic+New:wght@300;400;500;700;900&family=Zen+Old+Mincho:wght@400;500;600;700;900&display=swap');
+
+$color: (
+  basic_base: #000000,
+  basic_text: #ffffff,
+  assistant_program: #49c351
+);
+
+$values: (
+  transition: 0.7s
+);
+
+@mixin font_garamond($weight: 300, $style: normal) {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: $weight;
+  font-style: $style;
+}
+.font_garamond {
+  @include font_garamond();
+}
+
+@mixin font_vdl($weight: 700, $style: normal) {
+  font-family: vdl-pengentle, sans-serif;
+  font-weight: $weight;
+  font-style: $style;
+}
+.font_vdl {
+  @include font_vdl();
+}
+
+@mixin font_zen_mincho($weight: 700, $style: normal) {
+  font-family: 'Zen Old Mincho', serif;
+  font-weight: $weight;
+  font-style: $style;
+  letter-spacing: 0.3rem;
+}
+.font_zen_mincho {
+  @include font_zen_mincho();
+}
+
+@mixin font_zen_gothic($weight: 400, $style: normal) {
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-weight: $weight;
+  font-style: $style;
+}
+.font_zen_gothic {
+  @include font_zen_gothic();
+}

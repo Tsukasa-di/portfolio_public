@@ -1,0 +1,59 @@
+include ../_components/ui/_menu.pug
+include ../_components/ui/_modal.pug
+include ../_components/meta/_adobe-fonts.pug
+
+-
+  const STATUS = {
+    menu: 'close',
+    page: 'HOME'
+  }
+  const CLASS = {
+    body: ''
+  }
+  const GLOBAL = htmlWebpackPlugin.options.data;
+block Setting
+
+doctype html 
+html(lang="ja")
+  head 
+    meta(http-equiv="content-type" charest="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    - if (STATUS.page == 'HOME') {
+    title TSUKASA TOMIOKA PORTFOLIO SITE.
+    - } else {
+    title #{STATUS.page + ' | TSUKASA TOMIOKA PORTFOLIO SITE.'}
+    - }
+    +adobe-fonts()
+  body(class=CLASS.body + ' ' + (STATUS.menu == 'open' ? 'STATUS_MENU_OPEN' : 'STATUS_MENU_CLOSE'))
+    #LOADING 
+      .load-cancel-mask
+      .loading-bar 
+        .wrap 
+          .bar
+      p.text Now Loading...
+      p.title WEB CREATOR | TSUKASA TOMIOKA PORTFOLIO SITE.
+    #POINTER 
+      .pointer-area
+        .pointer 
+        .pointer-outer
+    #OPENING 
+      p.hello HELLO WORLD.
+      p.button.CURSOR_HOVER 
+        span.text ENTRY SITE
+        span.attention.pc-only ( BGMが流れます )
+        span.border
+    #UI 
+      +menu()
+      +modal()
+    #GLOBAL_WRAP
+      #CONTENTS
+        .mask
+        .inner
+          block Contents
+      #STAGE
+        .mask.mask-left
+        .mask.mask-right
+        #AREA
+      #BG
+        .light
+      canvas#world

@@ -1,0 +1,21 @@
+include ../../templates/_components/works/_work-title.pug
+include ../../templates/_components/works/_work-mv.pug
+
+mixin modal-works-tosuigei(work)
+  .modal(id=work.id)
+    +work-title(work)
+    section 
+      +work-mv(work, "実績開示の都合上デザインデータでの掲載となります")
+      article 
+        p 
+          | 「空間に陶酔する、特別な鮨の体験を」をコンセプトとする鮨処の公式サイトを制作させていただきました。一つひとつデザインコンセプトが設けられた食事スペースは、幻想的で芸術的な空間となっており、思わず酔いしれてしまうその空間で特別な鮨の体験ができるお店となっています。
+          <br><br>
+          | そんな特別な空間を美しく魅せるために、黒のベースカラーに神秘的な印象を与えられるカラーやレイアウトを組みました。
+          <br><br>
+          | 陶酔鮨の彩る和食は他とは一線を画すものだということをユーザーに伝えるため、全体の雰囲気づくりに力を入れたデザインとなっています。
+        .links
+          a.link.CURSOR_HOVER(href="https://xd.adobe.com/view/a00e6e02-5ef8-4298-819a-cfcc24293a70-f55d/" target="_blank") 制作定義書
+      article 
+        img(src="../assets/images/works/works_tosuigei_pickup_lead.png") 
+        img(src="../assets/images/works/works_tosuigei_pickup_space.png") 
+        img(src="../assets/images/works/works_tosuigei_pickup_instagram.png") 

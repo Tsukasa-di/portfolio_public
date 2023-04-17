@@ -1,0 +1,107 @@
+@use "../settings/settings.scss" as setting;
+@use "sass:map";
+
+html, body {
+  width: 100%;
+  height: 100%;
+  cursor: none;
+}
+
+a, p, button {
+  cursor: none;
+}
+
+html {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 62.5%;
+}
+
+body {
+  position: relative;
+  background-color: map.get(setting.$color, "basic_base");
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1680px;
+  max-height: 915px;
+  margin: 0 auto;
+}
+
+img {
+  width: 100%;
+}
+
+p, a, li {
+  font-size: 1.6rem;
+  line-height: 1.5;
+  color: map.get(setting.$color, "basic_text");
+  letter-spacing: 0.4rem;
+  @include setting.font_zen_gothic($weight: 500);
+
+  @include setting.sp-layout() {
+    font-size: 1.4rem;
+    letter-spacing: 0.2rem;
+  }
+}
+
+a {
+  text-decoration: none;
+  display: inline-block;
+}
+
+h1, h2, h3, h4 {
+  line-height: 1.5;
+  letter-spacing: 0.6rem;
+  color: map.get(setting.$color, "basic_text");
+}
+
+h3 {
+  @include setting.font_zen_mincho();
+  font-size: 2.4rem;
+  letter-spacing: 0.4rem;
+
+  @include setting.sp-layout() {
+    font-size: 1.8rem;
+  }
+}
+
+li {
+  margin-bottom: 10px;
+  list-style: none;
+  display: flex;
+
+  &:before {
+    content: '';
+    display: block;
+    background-color: map.get(setting.$color, "basic_text");
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    margin: 8px 10px 0 0;
+  }
+}
+
+.inline-link {
+  position: relative;
+  margin: 0 5px;
+
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    background-color: map.get(setting.$color, "basic_text");
+    transition: all map.get(setting.$values, "transition");
+  }
+
+  &:hover {
+    &:before {
+      width: 0;
+    }
+  }
+}

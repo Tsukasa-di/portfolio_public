@@ -1,0 +1,7 @@
+@use "../../settings/settings.scss" as setting;
+@use "sass:map";
+
+#GLOBAL_WRAP {
+  @include setting.fullscreen();
+  overflow: hidden;
+}

@@ -1,0 +1,20 @@
+@use "../settings/settings" as setting;
+@use "sass:map";
+@use "../components/works/work-item" as work-item;
+@use "../components/works/works-list" as works-list;
+
+body.WORKS {
+  #SCROLL_AREA {
+    section {
+      display: flex;
+      justify-content: center;
+  
+      &:last-child {
+        margin-bottom: 30%;
+      }
+    }
+  }
+
+  @include work-item.app();
+  @include works-list.app();
+}
