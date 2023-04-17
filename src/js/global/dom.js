@@ -1,4 +1,4 @@
-import { OP } from "../_libs/operator/app";
+import { OP } from "../_libs/operator/node";
 
 export const DOM = {
   init(finish) {

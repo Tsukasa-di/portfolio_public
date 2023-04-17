@@ -1,4 +1,4 @@
-import { OP } from "../../_libs/operator/app";
+import { OP } from "../../_libs/operator/node";
 import { DOM } from "../../global/dom";
 import { INST, STATUS } from "../../global/objects";
 

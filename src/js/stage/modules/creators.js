@@ -1,5 +1,5 @@
 import { CULC } from "../../_libs/culc/app";
-import { OP } from "../../_libs/operator/app";
+import { OP } from "../../_libs/operator/node";
 import { DOM } from "../../global/dom";
 import { INST } from "../../global/objects";
 

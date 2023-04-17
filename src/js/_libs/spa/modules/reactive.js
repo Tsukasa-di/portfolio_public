@@ -1,6 +1,6 @@
 import { DOM } from "../../../global/dom";
 import { INST, LOCATION, STATUS } from "../../../global/objects";
-import { OP } from "../../operator/app";
+import { OP } from "../../operator/node";
 
 export class Reactive {
   constructor() {

@@ -1,7 +1,7 @@
 import { DOM } from "../../global/dom";
 import { AUDIOS, STATUS } from "../../global/objects";
 import { SCREEN } from "../../global/screen";
-import { OP } from "../operator/app";
+import { OP } from "../operator/node";
 
 export class Cursor {
   constructor(hovers, clicks) {

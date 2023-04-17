@@ -31,7 +31,7 @@ function Clean(cb) {
 
 function DestAssets(cb) {
   gulp
-    .src([paths.src + '/assets/**/*.{jpg,jpeg,png,gif,svg,mp3,wav}'])
+    .src([paths.src + '/assets/**/*.{jpg,jpeg,png,gif,svg,mp3,wav,mp4,mov}'])
     .pipe(gulp.dest(paths.public + '/assets/'));
   gulp
     .src([paths.src + '/data/*.json'])

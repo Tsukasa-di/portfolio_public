@@ -11,6 +11,8 @@ body.HOME {
   }
 
   #CONTENTS {
+    pointer-events: none;
+
     > .inner {
       padding-bottom: 7%;
       padding-left: 53%;
@@ -57,6 +59,7 @@ body.HOME {
       align-items: center;
       justify-content: center;
       padding-left: 20px;
+      pointer-events: visible;
 
       @include setting.sp-layout() {
         width: 240px;

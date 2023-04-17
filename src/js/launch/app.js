@@ -18,8 +18,8 @@ export class Launch {
 
   init() {
     new Promise( resolve => {
-      SCREEN.TABLET() ? STATUS.audio.active = false : STATUS.audio.active = true;
       STATUS.page = _currentPage();
+      SCREEN.TABLET() ? STATUS.audio.active = false : STATUS.audio.active = true;
       STATUS.page == 'home' ? STATUS.cursor.light = true : STATUS.cursor.light = false;
       DOM.init(resolve);
     })

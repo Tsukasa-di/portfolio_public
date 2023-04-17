@@ -33,23 +33,48 @@ body.SINGLE {
     }
   }
 
-  #SCROLL_AREA {
-    position: relative;
-    z-index: 0;
-    max-width: 1440px;
-    width: 100%;
-    margin: 0 50px;
-    height: 80%;
-    margin-top: 100px;
-    overflow-y: scroll;
-    backdrop-filter: blur(5px) grayscale(100%) brightness(0.7);
-    @include setting.scrollbar-none();
-    transition: all map.get(setting.$values, "transition");
+  #STAGE {
+    #AREA, .mask {
+      opacity: 0;
+      display: none;
+    }
 
+    .movie {
+      opacity: 1;
+    }
+  }
+
+  #CONTENTS > .inner {
+    height: 80%;
+    max-width: 1440px;
+    margin: 0 50px;
+    margin-top: 100px;
+    background-color: rgba(0, 0, 0, 0.85);
+    box-shadow: 0 0 70px #333;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 20px 0;
+        
     @include setting.sp-layout() {
       margin: 0 12px;
       margin-top: 60px;
+      border-radius: 4px;
+      box-shadow: 0 0 30px #333;
     }
+  }
+
+  #GLOBAL_WRAP {
+    overflow: visible;
+  }
+
+  #SCROLL_AREA {
+    position: relative;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    @include setting.scrollbar-none();
+    transition: all map.get(setting.$values, "transition");
   }
 
   section {

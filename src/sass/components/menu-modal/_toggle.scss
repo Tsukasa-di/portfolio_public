@@ -21,7 +21,6 @@
     height: 70%;
     top: 15%;
     left: 15%;
-    box-shadow: 0 0 30px map.get(setting.$color, "basic_text");
 
     @include setting.sp-layout() {
       width: 80%;
@@ -29,9 +28,12 @@
       top: 10%;
       left: 10%;
     }
-
-    #SCROLL_AREA {
-      backdrop-filter: none;
+    
+    #STAGE {
+      .mask-right {
+        backdrop-filter: none;
+        opacity: 0;
+      }
     }
   } 
 }
@@ -40,6 +42,17 @@
 
 body.STATUS_MODAL_OPEN {
   @include opened($name: "MODAL");
+
+  #GLOBAL_WRAP {
+    #CONTENTS { 
+      filter: blur(5px) brightness(0.2);
+      box-shadow: 0 0 30px #fff;
+    }
+  }
+
+  #STAGE {
+    opacity: 0;    
+  }
 }
 
 body.STATUS_MENU_OPEN {

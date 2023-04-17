@@ -3,5 +3,6 @@
 
 #GLOBAL_WRAP {
   @include setting.fullscreen();
+  transition: map.get(setting.$values, "transition");
   overflow: hidden;
 }

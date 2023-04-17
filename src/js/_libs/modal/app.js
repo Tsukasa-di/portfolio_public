@@ -1,6 +1,6 @@
 import { DOM } from "../../global/dom";
 import { AUDIOS, INST, STATUS, TL } from "../../global/objects";
-import { OP } from "../operator/app";
+import { OP } from "../operator/node";
 
 export class Modal {
   constructor(triggers) {
