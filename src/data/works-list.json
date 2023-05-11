@@ -1,32 +1,8 @@
 [
   {
-    "id": "MODAL_WORKS_TBS",
-    "img": "works_tbs_mv.png",
-    "url": "https://xd.adobe.com/view/a281b85c-2fba-47b1-a8fe-99039d4a3f0f-f7d2/",
-    "title_ja": "新カリキュラム告知ページ制作 | 美容専門学校「TOKYO BEAUTY SCHOOL」",
-    "title_en": "NEW CURRICULUM ANNOUNCEMENT",
-    "category": ["WEBデザイン", "WEBディレクション", "専門学校", "美容", "華やか", "技術力"] 
-  },
-  {
-    "id": "MODAL_WORKS_LIONS",
-    "img": "works_lions_mv.png",
-    "url": "https://www.seibulions.jp/",
-    "title_ja": "埼玉西武ライオンズ 公式サイト保守管理ディレクション",
-    "title_en": "LIONS OFFICIAL SITE DIRECTION",
-    "category": ["コーディングチームリーダー", "公式サイト保守", "特設サイト制作", "プロ野球球団", "年間契約"]
-  },
-  {
-    "id": "MODAL_WORKS_YACHIYO",
-    "img": "works_yachiyo_mv.png",
-    "url": "https://www.yachiyo-reha.jp/",
-    "title_ja": "八千代リハビリテーション学院 公式サイト改修ディレクション",
-    "title_en": "YACHIYO REHA SITE RENEWAL",
-    "category": ["公式サイト改修", "WEBディレクション", "専門学校", "看護・リハビリ", "信頼感", "柔らかさ"]
-  },
-  {
     "id": "MODAL_WORKS_TOSUIGEI",
     "img": "works_tosuigei_mv.png",
-    "url": "https://xd.adobe.com/view/79278d29-8ffd-4f85-aef3-bca4dcc49651-2c74/",
+    "url": "https://works-tosuigei.tsukasa-tomioka-portfolio.com/",
     "title_ja": "公式サイト制作 | 飲食店「陶酔鮨」",
     "title_en": "TOSUIGEI OFFICIAL SITE CREATE",
     "category": ["公式サイト制作", "ロゴ制作", "WEBデザイン", "飲食店", "洗練", "和風"]
@@ -40,11 +16,35 @@
     "category": ["リクルートサイト制作", "ロゴ制作", "WEBデザイン", "ポップ", "ダイナミック"]
   },
   {
+    "id": "MODAL_WORKS_YACHIYO",
+    "img": "works_yachiyo_mv.png",
+    "url": "https://www.yachiyo-reha.jp/",
+    "title_ja": "八千代リハビリテーション学院 公式サイト改修ディレクション",
+    "title_en": "YACHIYO REHA SITE RENEWAL",
+    "category": ["公式サイト改修", "WEBディレクション", "専門学校", "看護・リハビリ", "信頼感", "柔らかさ"]
+  },
+  {
+    "id": "MODAL_WORKS_TBS",
+    "img": "works_tbs_mv.png",
+    "url": "https://xd.adobe.com/view/a281b85c-2fba-47b1-a8fe-99039d4a3f0f-f7d2/",
+    "title_ja": "新カリキュラム告知ページ制作 | 美容専門学校「TOKYO BEAUTY SCHOOL」",
+    "title_en": "NEW CURRICULUM ANNOUNCEMENT",
+    "category": ["WEBデザイン", "WEBディレクション", "専門学校", "美容", "華やか", "技術力"] 
+  },
+  {
     "id": "MODAL_WORKS_INTERNATIONAL_STUDENT",
     "img": "works_international_student_mv.png",
     "url": "https://www.tls-japan.com/admission/online-class-lp",
     "title_ja": "留学生向けオンラインクラス告知LP制作｜WEBディレクション",
     "title_en": "INTERNATIONAL STUDENT ANNOUNCMENT",
     "category": ["LP制作", "外国人向けデザイン", "多言語対応", "WEBディレクション", "学校", "和風", "多色使い"]
+  },
+  {
+    "id": "MODAL_WORKS_LIONS",
+    "img": "works_lions_mv.png",
+    "url": "https://www.seibulions.jp/",
+    "title_ja": "埼玉西武ライオンズ 公式サイト保守管理ディレクション",
+    "title_en": "LIONS OFFICIAL SITE DIRECTION",
+    "category": ["コーディングチームリーダー", "公式サイト保守", "特設サイト制作", "プロ野球球団", "年間契約"]
   }
 ]

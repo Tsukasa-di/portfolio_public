@@ -6,41 +6,14 @@
 #MENU {
   z-index: 1;
 
-  .mask {
-    will-change: backdrop-filter;
-    backdrop-filter: blur(5px) grayscale(100%) brightness(0.4);
+  > .mask {
+    backdrop-filter: blur(5px) grayscale(100%) brightness(0.6);
   }
 
   > .inner {
     width: 100%;
     height: 100%;
     position: relative;
-  }
-
-  .link {
-    display: inline-block;
-    text-decoration: none;
-    @include setting.font_garamond();
-    position: relative;
-    z-index: 1;
-    transition: map.get(setting.$values, "transition");
-
-    span {
-      display: block;
-      width: 100%;
-      height: 7px;
-      margin-top: 3px;
-      background-color: map.get(setting.$color, "basic_text");
-      transition: all map.get(setting.$values, "transition");
-    }
-
-    &:hover {
-      opacity: 0.5;
-
-      span {
-        width: 0;
-      }
-    }
   }
 
   .contact {
@@ -54,8 +27,60 @@
     pointer-events: visible;
     transition: map.get(setting.$values, "transition");
 
+    &:after {
+      height: 7px;
+    }
+
+    @include setting.multi-device-layout() {
+      right: 240px;
+    }
+
     @include setting.sp-layout() {
       display: none;
+    }
+  }
+
+  .sound {
+    width: 20px;
+    height: 20px;
+    @include setting.absolute();
+    z-index: 1;
+    top: 57px;
+    left: unset;
+    right: 455px;
+    pointer-events: visible;
+    transition: map.get(setting.$values, "transition");
+
+    @include setting.multi-device-layout() {
+      top: 43px;
+      right: 395px;
+    }
+
+    @include setting.sp-layout() {
+      display: none;
+      top: 25px;
+      right: 150px;
+      width: 20px;
+      height: 20px;
+    }
+
+    .inner {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    .sound-on, .sound-off {
+      @include setting.absolute();
+      width: 20px;
+      height: 20px;
+      transition: map.get(setting.$values, "transition");
+      opacity: 0;
+
+      @include setting.sp-layout() {
+        width: 20px;
+        height: 20px;
+      }
     }
   }
   
@@ -70,9 +95,15 @@
     pointer-events: visible;
     transition: map.get(setting.$values, "transition");
 
+    @include setting.multi-device-layout() {
+      left: 60px;
+      bottom: 30px;
+      font-size: 1rem;
+      letter-spacing: 0.3rem;
+    }
+
     @include setting.sp-layout() {
       max-width: 340px;
-      font-size: 1rem;
       left: unset;
       right: 20px;
       bottom: 20px;
@@ -94,6 +125,13 @@
     align-items: center;
     pointer-events: visible;
     transition: map.get(setting.$values, "transition");
+
+    @include setting.multi-device-layout() {
+      top: 40px;
+      right: 60px;
+      width: 140px;
+      height: 34px;
+    }
 
     @include setting.sp-layout() {
       top: 20px;
@@ -142,30 +180,6 @@
 
   .list {
     @include setting.absolute();
-    
-    .link {
-      margin-bottom: 40px;
-      font-size: 4.8rem;
-
-      @include setting.sp-layout() {
-        margin-bottom: 25px;
-        font-size: 2.6rem;
-      }
-
-      &:last-child {
-        margin-bottom: 0;
-      }
-
-      span {
-        height: 10px;
-        margin-top: 5px;
-
-        @include setting.sp-layout() {
-          height: 7px;
-          margin-top: 3px;
-        }
-      }
-    }
   }
 
   .copy {
@@ -190,8 +204,8 @@
       @include setting.font_garamond();
       font-size: 4.2rem;
       margin-bottom: 20px;
-      
-      @include setting.sp-layout() {
+
+      @include setting.multi-device-layout() {
         font-size: 3.2rem;
       }
     }
@@ -200,7 +214,7 @@
       @include setting.font_zen_mincho();
       font-size: 1.4rem;
             
-      @include setting.sp-layout() {
+      @include setting.multi-device-layout() {
         font-size: 1.2rem;
       }
     }
@@ -211,7 +225,7 @@
     top: unset;
     bottom: 35px;
     display: flex;
-    
+
     @include setting.sp-layout() {
       display: none;
       left: unset;
@@ -226,6 +240,11 @@
 
       &:first-child {
         margin-right: 20px;
+      }
+
+      @include setting.multi-device-layout() {
+        width: 30px;
+        height: 30px;
       }
     }
   }

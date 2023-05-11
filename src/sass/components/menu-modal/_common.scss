@@ -9,6 +9,10 @@ padding: 50px 100px;
 pointer-events: none;
 transition: map.get(setting.$values, "transition");
 
+@include setting.multi-device-layout() {
+  padding: 30px 60px;
+}
+
 .mask {
   @include setting.absolute();
   width: 100%;

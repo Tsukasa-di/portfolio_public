@@ -1,7 +1,8 @@
 @use "../settings/settings" as setting;
 @use "sass:map";
-@forward "./home.scss";
-@forward "./single.scss";
 @forward "./about.scss";
-@forward "./works.scss";
 @forward "./contact.scss";
+@forward "./home.scss";
+@forward "./service.scss";
+@forward "./single.scss";
+@forward "./works.scss";

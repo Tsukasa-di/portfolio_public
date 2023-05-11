@@ -18,11 +18,11 @@ export const OP = {
     html(target, value) {
       target.innerHTML = value;
     },
-    on(target, eventType, callback) {
-      target.addEventListener(eventType, callback);
+    on(target, eventType, callback, passive) {
+      target.addEventListener(eventType, callback, {passive: passive});
     },
-    off(target, eventType, callback) {
-      target.removeEventListener(eventType, callback);
+    off(target, eventType, callback, passive) {
+      target.removeEventListener(eventType, callback, {passive: passive});
     }
   }
 }

@@ -1,6 +1,6 @@
 include ../../../contents/_modal-works.pug
 
-mixin modal()
+mixin modal(page)
   #MODAL 
     .button.MODAL_BUTTON.CURSOR_HOVER.CURSOR_CLICK
       .inner
@@ -8,4 +8,5 @@ mixin modal()
         span
     .mask
     .inner 
-      +modal-works()
+      if page == 'works'
+        +modal-works()

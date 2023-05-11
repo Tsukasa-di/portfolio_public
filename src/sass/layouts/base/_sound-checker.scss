@@ -1,0 +1,67 @@
+@use "../../settings/settings.scss" as setting;
+@use "sass:map";
+
+#SOUND_CHECKER {
+  @include setting.fullscreen();
+  z-index: 99999;
+  background-color: map.get(setting.$color, "basic_base");
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  cursor: auto;
+
+  @include setting.sp-layout() {
+    display: none;
+  }
+
+  > * {
+    cursor: auto;
+  }
+
+  .check {
+    font-size: 1.6rem;
+    @include setting.font_default();
+    margin-bottom: 40px;
+  }
+
+  .icons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 11px;
+    width: 200px;
+
+    .border {
+      width: 1px;
+      height: 40px;
+      background-color: map.get(setting.$color, "basic_text");
+      opacity: 0.3;
+    }
+
+    button {
+      flex-shrink: 0;
+      width: 20px;
+      cursor: pointer;
+      transition: map.get(setting.$values, "transition");
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+
+      span {
+        display: inline-block;
+        @include setting.font_default();
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+      }
+
+      * {
+        pointer-events: none;
+      }
+
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+  }
+}

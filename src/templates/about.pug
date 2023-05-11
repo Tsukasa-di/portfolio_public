@@ -1,4 +1,6 @@
 extends ./_layouts/_default.pug
+include ./_components/contents/_title-contents.pug
+include ./_components/ui/_paginator.pug
 
 block Setting 
   -
@@ -6,33 +8,45 @@ block Setting
     CLASS.body = 'ABOUT SINGLE'
 
 block Contents 
-  #SCROLL_AREA
-    section.title 
-      .inner
-        p ABOUT
-        .COMP-UI-scroll-navigation
-          .arrow 
-            span 
-            span
+  section.title 
+    .inner
+      h1 ABOUT
+      .COMP-UI-scroll-navigation
+        .arrow 
+          span 
+          span
+  main
     section
-      .COMP-COLUMN-title-contents 
-        p.title PROFILE
-        .border
-        .contents 
-          h2 冨岡 司 - WEBデザイナー/WEBエンジニア
-          p.copy TSUKASA TOMIOKA - WEB DESIGNER, WEB ENGEER
-          p.description 
-            | ポートフォリオサイトをご閲覧くださりありがとうございます。
-            <br><br>
-            | フリーランスのWEBデザイナー/WEBコーダー/フロントエンドエンジニアとして活動しています冨岡と申します。これまで企業で積んできた、デザイン、エンジニアリング、ディレクションの幅広い実務経験を元に、WEB制作にお力添えさせていただいています。
-            <br><br>
-            | ヒアリングからの公式サイトやWEBページ制作や、コーディングのみの対応など、ご相談内容に応じて柔軟にご制作いたしますので、お気軽にお声がけくださいませ。
+      +title-contents({
+        title: 'PROFILE',
+        heading2: '冨岡 司 - WEB CREATOR',
+        copy: 'TSUKASA TOMIOKA - WEB CREATOR',
+        description: `
+          ポートフォリオサイトをご閲覧くださりありがとうございます。
+          <br><br>
+          コーポレートサイト、リクルートサイト、商品・企画・イベントの告知サイトなどのブランディングサイト制作やLP制作を中心に、WEBクリエイティブにてお力添えさせていただいております。
+          <br><br>
+          単発のご制作や長期的な運用保守、既存ページのリニューアル等、ご相談内容に応じて柔軟にご制作いたしますので、お気軽にお声がけくださいませ。
+        `
+      })
     section
-      .COMP-COLUMN-title-contents 
-        p.title MISSION
-        .border
-        .contents 
-          h2 変化を与え続ける、創り続ける、これからも
-          p.copy I Will Keep Changing, Keep Creating
-          p.description 
-            | クリエイティブでヒトの心に変化を与え続けることを使命に日々精進しています。クライアントのオーダーに対して期待以上に応えることはもちろん、制作物を通してエンドユーザーの心を揺さぶり、行動や心情に変化を起こすことを常に考えています。
+      +title-contents({
+        title: 'MISSION',
+        heading2: '変化を与え続ける、創り続ける、これからも',
+        copy: 'I Will Keep Changing, Keep Creating',
+        description: `
+          クリエイティブでヒトの心に変化を与え続けることを使命に日々精進しています。クライアントのオーダーに対して期待以上に応えることはもちろん、制作物を通してエンドユーザーの心を揺さぶり、行動や心情に変化を起こすことを常に考えています。
+        `
+      })
+    section
+      +title-contents({
+        title: 'POSITION',
+        description: `
+          〒103-0011<br>
+          東京都中央区日本橋大伝馬町<br>
+          Tokyo Chuoku Nihonbashi Odenmacho<br>
+          <br>
+          会議は基本的にリモートにて行っておりますが、必要に応じて直接お伺いしご挨拶やミーティングもさせていただいております。
+        `
+      })
+  +paginator(['works', 'service', 'contact'])

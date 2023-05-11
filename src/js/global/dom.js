@@ -18,24 +18,36 @@ export const DOM = {
     this.head = OP.node.qs('head');
     this.title = OP.node.qs('title', this.head);
 
+    // SOUND
+    this.SOUND = OP.node.qs('#SOUND_CHECKER');
+
     // LOADING
-    this.LOADING = OP.node.qs('#LOADING', document);
+    this.LOADING = OP.node.qs('#LOADING');
     loading(this);
 
     // POINTER
-    this.POINTER = OP.node.qs('#POINTER', document);
+    this.POINTER = OP.node.qs('#POINTER');
     pointer(this);
 
     // OPENING
-    this.OPENING = OP.node.qs('#OPENING', document);
+    this.OPENING = OP.node.qs('#OPENING');
     opening(this);
 
     // UI
-    this.UI = OP.node.qs('#UI', document);
+    this.UI = OP.node.qs('#UI');
+    this.UI.MENU = OP.node.qs('#MENU', this.UI);
+    this.UI.MODAL = OP.node.qs('#MODAL', this.UI);
+    this.UI.MODAL.inner = OP.node.qs('#MODAL > .inner', this.UI.MODAL);
 
     // GLOBAL_WRAP
-    this.GLOBAL_WRAP = OP.node.qs('#GLOBAL_WRAP', document);
+    this.GLOBAL_WRAP = OP.node.qs('#GLOBAL_WRAP');
     global_wrap(this);
+
+    // BG
+    this.BG = OP.node.qs('#BG');
+    this.BG.light = OP.node.qs('.light', this.BG); 
+    this.BG.STAGE = OP.node.qs('#STAGE', this.BG);
+    this.BG.AREA = OP.node.qs('#AREA', this.BG);
 
     // TRIGGERS
     triggers(this);
@@ -58,21 +70,14 @@ function opening(d) {
 }
 
 function global_wrap(d) {
-  d.GLOBAL_WRAP.STAGE = OP.node.qs('#STAGE', d.GLOBAL_WRAP);
-  d.GLOBAL_WRAP.AREA = OP.node.qs('#AREA', d.GLOBAL_WRAP);
   d.GLOBAL_WRAP.CONTENTS = OP.node.qs('#CONTENTS', d.GLOBAL_WRAP);
   contents(d);
-  d.GLOBAL_WRAP.BG = OP.node.qs('#BG', d.GLOBAL_WRAP);
-  bg(d);
 }
 
 function contents(d) {
   d.GLOBAL_WRAP.CONTENTS.mask = OP.node.qs('.mask', d.GLOBAL_WRAP.CONTENTS);
   d.GLOBAL_WRAP.CONTENTS.inner = OP.node.qs('.inner', d.GLOBAL_WRAP.CONTENTS);
-}
-
-function bg(d) {
-  d.GLOBAL_WRAP.BG.light = OP.node.qs('.light', d.GLOBAL_WRAP.BG); 
+  d.GLOBAL_WRAP.CONTENTS.mv = OP.node.qs('section.title', d.GLOBAL_WRAP.CONTENTS);
 }
 
 function triggers(d) {

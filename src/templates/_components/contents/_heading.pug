@@ -1,0 +1,12 @@
+mixin heading(title, copy, type)
+  .COMP-CONTENTS-heading(class=(type ? type : null))
+    if type == 'h2'
+      p.copy #{copy}
+      h2 #{title}
+      .border
+    if type == 'h3'
+      h3 #{title}
+    else 
+      p.copy #{copy}
+      h2 #{title}
+      .border

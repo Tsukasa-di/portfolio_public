@@ -4,10 +4,10 @@
 @mixin app() {
 
 .work-item {
-  width: 610px;
+  width: 650px;
   transition: all map.get(setting.$values, "transition");
 
-  @include setting.sp-layout() {
+  @include setting.custom-works-item() {
     width: 100%;
   }
 
@@ -15,27 +15,29 @@
     width: 100%;
   }
 
-  &:hover {
-    opacity: 0.5;
-  }
-
   .image {
     height: 345px;
     margin-bottom: 20px;
     overflow: hidden;
+    transition: map.get(setting.$values, "transition");
 
-    @include setting.sp-layout() {
+    @include setting.custom-works-item() {
       height: auto;
       width: 100%;
     }
 
     img {
-      width: auto;
-      height: 100%;
+      transition: map.get(setting.$values, "transition");
+    }
+  }
 
-      @include setting.sp-layout() {
-        height: auto;
-        width: 100%;
+
+  &:hover {
+    .image {
+      opacity: 0.5;
+
+      img {
+        transform: scale(1.08);
       }
     }
   }
@@ -47,7 +49,7 @@
     display: inline-block;
     width: 100%;
 
-    @include setting.sp-layout() {
+    @include setting.custom-works-item() {
       font-size: 1.4rem;
     }
   }
@@ -59,7 +61,7 @@
     display: inline-block;
     width: 100%;
 
-    @include setting.sp-layout() {
+    @include setting.custom-works-item() {
       font-size: 1.2rem;
     }
   }

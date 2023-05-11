@@ -1,27 +1,40 @@
 import { DOM } from "../../global/dom";
 import { AUDIOS, INST, STATUS, TL } from "../../global/objects";
 import { OP } from "../operator/node";
+import { ScrollTop } from "../operator/scroll";
 
 export class Modal {
   constructor(triggers) {
     this.triggers = triggers;
     this.dom = {};
-    this.vals = {
-      target: 0,
-      current: 0
-    };
+    this.scrollTop = '';
     this.event = event => {
       event.target.classList.value.includes('MENU') ? this._menuSet() : this._modalSet(event);
+    },
+    this._wheelCancel = {
+      cancel(e) {
+        e.preventDefault();
+      },
+      eventName: '',
+      add(name) {
+        if (name == 'MENU') OP.node.on(DOM.body, this.event, this.cancel, false);
+      },
+      remove(name) {
+        if (name == 'MENU') OP.node.off(DOM.body, this.event, this.cancel, false);
+      }
     }
   }
 
   init() {
+    this._wheelCancel.event = 'onmousewheel' in document ? 'mousewheel' : 'onwheel' in document ? 'wheel' : 'DOMMouseScroll';
     this._domSet();
+    this.scrollTop = new ScrollTop(this.dom.modalInner);
     this._click('on');
   }
 
   update() {
     this._domSet();
+    this.scrollTop = new ScrollTop(this.dom.modalInner);
     this._click('off');
     this._click('on');
   }
@@ -62,17 +75,17 @@ export class Modal {
     // 閉じる時の処理
 
       STATUS.modal.active = false;
-      this._scrollTop();
+      this.scrollTop.scroll();
       setTimeout(() => {
         DOM.body.classList.remove('STATUS_' + name + '_OPEN');
         DOM.body.classList.add('STATUS_' + name + '_CLOSE'); 
-      }, name == 'MODAL' ? 300 : 0);
+      }, name == 'MODAL' ? 700 : 0);
       TL.start.resume();
       TL.end.resume();
-      if (STATUS.audio.active) INST.bgmMaster.unreverb();
-      if (STATUS.audio.active) INST.bgmMaster.volumeUp();
+      INST.bgmMaster.unreverb();
       if (STATUS.page == 'home') STATUS.cursor.light = true;
       else STATUS.cursor.light = false;
+      this._wheelCancel.remove(name);
 
     } else {
     // 開く時の処理
@@ -83,22 +96,9 @@ export class Modal {
       TL.start.pause();
       TL.end.pause();
       if (STATUS.modal.type == 'menu') if (STATUS.audio.active) AUDIOS.menu.play();
-      if (STATUS.audio.active) INST.bgmMaster.reverb();
-      if (STATUS.audio.active) INST.bgmMaster.volumeDown();
-    } 
-  }
-
-  _scrollTop() {
-    this.vals.target = 0;
-    this.vals.current = this.dom.modalInner.scrollTop;
-    const inst = this;
-
-    function animate() {
-      inst.vals.current += (inst.vals.target - inst.vals.current) * 0.3;
-      inst.dom.modalInner.scroll(0, inst.vals.current);
-      if (inst.vals.current >= inst.vals.target + 1) requestAnimationFrame(animate);
+      INST.bgmMaster.reverb();
+      this._wheelCancel.add(name);
+      
     }
-
-    animate();
   }
 }

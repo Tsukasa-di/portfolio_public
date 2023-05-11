@@ -1,6 +1,7 @@
 import { OP } from "../../_libs/operator/node";
 import { DOM } from "../../global/dom";
-import { INST, STATUS } from "../../global/objects";
+import { INST } from "../../global/objects";
+import { SCREEN } from "../../global/screen";
 
 export function _prepare() {
   return new Promise( resolve => {
@@ -8,7 +9,7 @@ export function _prepare() {
       DOM.OPENING.style.opacity = 0;
       DOM.OPENING.style.pointerEvents = 'none';
       INST.stageOperator.animate();
-      if (STATUS.audio.active) INST.bgmMaster.play();
+      if (!SCREEN.MINI()) INST.audioMaster.play();
     });
     resolve('finish prepare.');
   });

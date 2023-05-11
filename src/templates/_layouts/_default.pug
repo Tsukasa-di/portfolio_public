@@ -25,6 +25,16 @@ html(lang="ja")
     - }
     +adobe-fonts()
   body(class=CLASS.body + ' ' + (STATUS.menu == 'open' ? 'STATUS_MENU_OPEN' : 'STATUS_MENU_CLOSE'))
+    #SOUND_CHECKER 
+      p.check SOUND SELECT.
+      .icons 
+        button.sound-on(data-sound="on")
+          span ON
+          img(src="./assets/images/ui/sound-on.png")
+        .border
+        button.sound-off(data-sound="off")
+          span OFF
+          img(src="./assets/images/ui/sound-off.png")
     #LOADING 
       .load-cancel-mask
       .loading-bar 
@@ -40,27 +50,18 @@ html(lang="ja")
       p.hello HELLO WORLD.
       p.button.CURSOR_HOVER 
         span.text ENTRY SITE
-        span.attention.pc-only ( BGMが流れます )
         span.border
     #UI 
       +menu()
-      +modal()
+      +modal(modal)
     #GLOBAL_WRAP
       #CONTENTS
         .mask
         .inner
           block Contents
+    #BG
+      .mask.mask-left
+      .mask.mask-right
       #STAGE
-        .movie 
-          video(
-            src="assets/videos/single-bg.mp4"
-            autoplay
-            muted
-            loop
-          )
-        .mask.mask-left
-        .mask.mask-right
         #AREA
-      #BG
-        .light
-      canvas#world
+      .light

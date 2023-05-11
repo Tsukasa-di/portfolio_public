@@ -21,6 +21,11 @@ const pugs = [
     inject: true
   },
   {
+    template: 'templates/service',
+    filename: 'service',
+    inject: true
+  },
+  {
     template: 'templates/contact',
     filename: 'contact',
     inject: true

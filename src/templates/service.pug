@@ -1,0 +1,187 @@
+extends ./_layouts/_default.pug
+include ./_components/contents/_heading.pug
+include ./_components/contents/_image-addition.pug
+include ./_components/ui/_paginator.pug
+
+block Setting 
+  -
+    STATUS.page = 'SERVICE'
+    CLASS.body = 'SERVICE SINGLE'
+
+block Contents 
+  section.title 
+    .inner
+      h1 SERVICE
+      .COMP-UI-scroll-navigation
+        .arrow 
+          span 
+          span
+  main
+    section
+      +heading('ブランディングサイト制作｜ユーザーの心に刺さるWEB体験を', 'BRANDING SITE CREATE')
+      .images
+        .UTLT-column-2 
+          .image
+            img(src="../assets/images/works/works_tosuigei_mv.png", alt="")
+          .image
+            img(src="../assets/images/works/works_ActTowarC_mv.png", alt="")
+        .UTLT-column-2 
+          .image
+            img(src="../assets/images/works/works_lions_thanks.png", alt="")
+          +image-addition('JOINED PROJECTS.')
+      .description 
+        p 
+          | 商品・サービス・イベントの広告用LPや、新店舗のオフィシャルサイト、コーポレートサイト、リクルートサイトなど、ユーザーにブランドを浸透させてコンヴァージョンに導くサイトを総称して「ブランディングサイト」と見ています。<br>
+          <br>
+          | そして、ブランディングサイト制作では下記の3点を軸にしております。
+        ul 
+          li ブランド自体の魅力
+          li 構成
+          li クリエイティブ
+        p
+          | まず、そもそものブランド価値をお客様よりしっかりヒアリングさせていただき、その魅力の理解から努めてまいります。<br>
+          <br>
+          | そして、企画構成。「コピー、結果、実証、信頼、安心、クロージング」の流れを軸に、ユーザーが訪問する目的に合わせて、力を入れるポイントを絞っていきます。
+        ul 
+          li メインビジュアルで見せるべき要素
+          li ユーザーが得られる最高の結果（ベネフィット）
+          li 商品 / サービスの一番の価値
+        p 
+          | 上記のような点は特に、企画構成の段階から固めてまいります。<br>
+          <br>
+          | そして構成が定まれば、クリエイティブに移ります。デザインは決して使いまわせるモノではありません。ご制作前に競合分析をして、たった一つのトーン・マナーを定義させていただきます。
+        .UTLT-column-2 
+          .image
+            img(src="../assets/images/service/color-document.png", alt="")
+          +image-addition('DESIGN DOCUMENT.')
+        p 
+          | お客様の持つブランドの力を最大限ターゲットに届けて、心を掴むのが私の仕事と捉えております。<br>
+          <br>
+          | もちろんご制作だけに終わらずその後の運用保守まで長期的にサポートさせていただきますので、もしご要望やお悩みがございましたら、ご相談からでも何卒よろしくお願いいたします。
+    section
+      +heading('LP制作｜ターゲットに刺さるWEBページへ', 'LP CREATE')
+      .images
+        .UTLT-column-2 
+          .image
+            img(src="../assets/images/works/works_tbs_mv.png", alt="")
+          .image
+            img(src="../assets/images/works/works_international_student_mv.png", alt="")
+        .UTLT-column-2 
+          .image
+            img(src="../assets/images/works/works_yachiyo_mv.png", alt="")
+          +image-addition('JOINED PROJECTS.')
+      .description 
+        p 
+          | スクールの講座申込獲得や新企画・新商品の告知LP、イベント募集など、告知・集客に特化したWEBページ制作をさせていただいております。<br>
+          <br>
+          | こちらもヒアリングを基に要件定義をさせていただき、特にターゲットの目の留まるポイントをしっかりと分析し、お客様のユーザーに刺さるコンテンツを組まさせていただきます。<br>
+          <br>
+          | また、マーケターと提携の上、各種広告との連動、WEBページのアクセス解析等もご提供させていただきます。
+    section
+      +heading('WEB制作で活用できる技術', 'WEB TECHNIQUES')
+      .description
+        p 
+          | 技術ベースでWEB制作をご検討の方はご参考にくださいませ。【パートナー】の記載がある技術は外部パートナーと連携して制作させていただきます。
+        p(style="font-weight: bold;")
+          | 言語/フレームワーク/ツール
+        ul()
+          li HTML/CSS、JavaScript 
+          li WordPress 
+          li テンプレートエンジン（ejs / pug）
+          li SPA（シングルページアプリケーション）の実装
+          li Vue.js
+          li HeadLess CMS（Vue.js x WordPress）
+          li 【パートナー】React.js、その他JavaScriptフレームワーク
+          li WebGL（Three.js）による3Dモデル操作
+          li 【パートナー】サーバーサイド言語
+          li Gulp / Webpack 
+          li Git / GitHub 
+        p(style="font-weight: bold;")
+          | Adobe Creative 
+        ul 
+          li Adobe Photoshop 
+          li Adobe Illustrator 
+          li 【パートナー】Adobe After Effects
+    section 
+      +heading('ご制作の流れ｜要件定義・企画構成、デザイン、サイト構築', 'WORK FLOW')
+      .description
+        p 
+          | ブランディングサイト制作・LP制作、どちらの場合でも、初回のヒアリングからお受けする際のワークフローとなります。<br>
+          | 写真撮影や映像制作などが必要な場合は、パートナーと連携の上、別軸で進行いたします。<br>
+          | また、ご対応期間は目安となりますので、実際のヒアリングを経て確定させていただきます。
+        +heading('1. ヒアリング', null, 'h3')
+        .UTLT-padding-left
+          p 
+            | ご要件やご不安な点、参考にしているサイト、公開後のゴールなど、お客様の理解から丁寧にさせていただきます。
+          p.UTLT-margin-bottom-10(style="font-weight: bold;") - ご対応期間：1週間 ~
+          p.UTLT-margin-bottom-10(style="font-weight: bold;") - ヒアリング項目の例
+          ul 
+            li ご制作の目的 / 公開後のゴール地点
+            li お客様の持つブランについて
+            li お客様のターゲットについて
+            li ご参考としているサイト
+            li CMSやフォームなどサイト構築の要件
+            li ご予算とスケジュール感
+            li 公開後の露出媒体
+            li 公開後にご必要としているサポート
+        .UTLT-border
+        +heading('2. 要件定義・企画構成案の作成', null, 'h3')
+        .UTLT-padding-left
+          p 
+            | ヒアリングを経て、私の方で要件を整理し、WEBサイトの構成を固めさせていただきます。<br>
+            | 構成案（ワイヤーフレーム）はターゲットの心を掴むためのWEBサイトの骨組みとなります。<br>
+            | 「コピー、結果、実証、信頼、安心、クロージング」の流れを軸に、下記のような要素を固めてまいります。
+          ul 
+            li メインビジュアルで見せるべき要素
+            li ユーザーが得られる最高の結果（ベネフィット）
+            li 商品 / サービスの一番の価値
+          p
+            | 併せてデザインの方向性も固めるために、参考サイトや競合サイト分析、トーン・マナーの策定も行ってまいります。<br>
+            <br>
+            | 要件定義・企画構成案のフェーズでは、「構成」「クリエイティブ」の2軸で進行するため、<br>
+            | 基本的に会議と修正は2回からとさせていただいております。
+          p.UTLT-margin-bottom-10(style="font-weight: bold;") - ご対応期間：2週間 ~
+          p.UTLT-margin-bottom-10(style="font-weight: bold;") - 会議：2回 ~
+          p.UTLT-margin-bottom-10(style="font-weight: bold;") - 修正：2回 ~
+          p.UTLT-margin-bottom-10(style="font-weight: bold;") - 作成するドキュメントの例
+          ul 
+            li 要件定義書
+            li 企画構成案
+            li デザイン定義書
+            li サイトマップ
+            li スケジュール
+        .UTLT-border
+        +heading('3. デザイン', null, 'h3')
+        .UTLT-padding-left
+          p 
+            | 続いてデザインへ移ります。<br>
+            | ご要望に応じて、ファーストビューのみを制作した段階でご共有したり、見出しやボタンなどのパーツのみを先にご共有したり、進行方法については臨機応変に対応しております。
+          p.UTLT-margin-bottom-10(style="font-weight: bold;") - ご対応期間：（1ページのみ）2週間 ~ （複数ページ）1ヶ月 ~
+          p.UTLT-margin-bottom-10(style="font-weight: bold;") - 会議：1回 ~
+          p.UTLT-margin-bottom-10(style="font-weight: bold;") - 修正：2回 ~
+        .UTLT-border
+        +heading('4. サイト構築', null, 'h3')
+        .UTLT-padding-left
+          p 
+            | 続いてWEBサイトの構築へ移ります。サイト構築では主に3フェーズに分かれます。
+          ul 
+            li 開発環境の構築
+            li コーディング（見た目を構築するフェーズ）
+            li CMSなどの拡張機能の構築
+          p 
+            | それぞれの有無や規模感によって、ご対応期間、修正回数、必要な会議数も異なります。
+          p.UTLT-margin-bottom-10(style="font-weight: bold;") - ご対応期間：2週間 ~ 2ヶ月
+          p.UTLT-margin-bottom-10(style="font-weight: bold;") - 修正：2回 ~
+        .UTLT-border
+        +heading('5. 公開', null, 'h3')
+        .UTLT-padding-left
+          p 
+            | 要件定義の際に伺った方法で公開してまいります。ソースコードでのご納品かサーバーへのアップロードが、主な手段となります。
+        .UTLT-border
+        +heading('6. 運用保守・ご相談', null, 'h3')
+        .UTLT-padding-left
+          p 
+            | 公開後は、要件に応じて運用保守を行います。<br>
+            | ページの追加更新をしたり、未定だったコンテンツや素材を挿入したり、CMSレクチャー、サイト解析による改善提案、SEOコンテンツライティングなどなど...<br>
+            | お客様のご状況とご要望に合わせて長期的なお付き合いをさせていただきます。
+  +paginator(['works', 'about', 'contact'])

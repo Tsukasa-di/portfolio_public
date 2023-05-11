@@ -4,13 +4,25 @@
 @use "../components/works/works-list" as works-list;
 
 body.WORKS {
-  #SCROLL_AREA {
-    section {
-      display: flex;
-      justify-content: center;
+  #CONTENTS > .inner {
+    max-width: 1440px;
+  }
   
-      &:last-child {
-        margin-bottom: 30%;
+  section {
+    padding: 0 50px 200px;
+
+    @include setting.sp-layout() {
+      height: auto;
+      padding: 0 20px 150px;
+    }
+
+    &:last-child {
+      padding: 0 50px;
+      margin-bottom: 100px;
+
+      @include setting.sp-layout() {
+        padding: 0 20px;
+        margin-bottom: 150px;
       }
     }
   }

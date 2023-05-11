@@ -6,13 +6,12 @@ import { INST } from "../../global/objects";
 /**
  * ひとつ分のオブジェクトを生成します
  * @param {number} オブジェクトの番号
- * @param {object} インスタンス StageOperator を指定してください
  * @return {HTMLElement} 生成したElementを返します
  */
 function create(num) {
   const _vals = {
-    width: Math.floor( (Math.random() * 15) + 1 ),
-    backgroundColor: CULC.getRGBColor(INST.stageOperator.color, 226, 0),
+    width: Math.floor( (Math.random() * 30) + 1 ),
+    backgroundColor: CULC.getRGBColor(INST.stageOperator.color, 206, 20),
     marginLeft: 30
   }
   const styles = {
@@ -35,12 +34,11 @@ function create(num) {
 
 /**
  * #STAGEに出力する全てのオブジェクトを生成します
- * @param {object} インスタンス StageOperator を指定してください
  */
 function createObjects() {
   let count = 0;
-  while (count < INST.stageOperator.vals.objectTotal) DOM.GLOBAL_WRAP.AREA.append(create(count++));
-  INST.stageOperator.objects = OP.node.qsAll('.child', DOM.GLOBAL_WRAP.AREA);
+  while (count < INST.stageOperator.vals.objectTotal) DOM.BG.AREA.append(create(count++));
+  INST.stageOperator.objects = OP.node.qsAll('.child', DOM.BG.AREA);
 }
 
 export { createObjects };

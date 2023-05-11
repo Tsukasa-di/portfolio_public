@@ -10,6 +10,10 @@ $values: (
   transition: 0.7s
 );
 
+@mixin font_default() {
+  font-family: "Times New Roman", "YuMincho", "Hiragino Mincho ProN", "Yu Mincho", "MS PMincho", serif;
+}
+
 @mixin font_garamond($weight: 300, $style: normal) {
   font-family: "Cormorant Garamond", serif;
   font-weight: $weight;

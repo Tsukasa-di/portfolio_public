@@ -20,7 +20,8 @@ export class Animate {
     }
     this._last = () => {
       TL.start.to('#AREA .child', {
-        duration: 1,
+        duration: 2.0,
+        delay: 1,
         opacity: 0,
         ease: 'power1.inOut',
         stagger: {
@@ -59,29 +60,29 @@ export class Animate {
   
     TL.start.call(
       () => {
-        if (STATUS.page == 'home') gsap.to(DOM.GLOBAL_WRAP.AREA, {
+        if (STATUS.page == 'home') gsap.to(DOM.BG.AREA, {
           duration: 2.0,
-          scale: 20,
+          scale: 25,
           rotate: -110
         });
         TL.start.timeScale(0.3);
       },
       null,
-      SCREEN.TABLET() ? 2.3 : 3.3
+      SCREEN.TABLET() ? 2.4 : 3.4
     );
   
     TL.start.call(
       () => {
         TL.start.timeScale(1.5);
-        if (STATUS.page == 'home') gsap.to(DOM.GLOBAL_WRAP.AREA, {
+        if (STATUS.page == 'home') gsap.to(DOM.BG.AREA, {
           duration: 3.5,
-          scale: 2.5,
+          scale: 2,
           rotate: -20,
-          width: SCREEN.TABLET() ? '60%' : '28%'
+          width: SCREEN.TABLET() ? '60%' : '30%'
         });
       },
       null,
-      SCREEN.TABLET() ? 2.4 : 3.4
+      SCREEN.TABLET() ? 2.5 : 3.5
     );
   
     TL.start.call(
@@ -98,7 +99,7 @@ export class Animate {
    */
   _complete() {
     if (STATUS.page != 'home') INST.stageOperator.default.AREA.width = '30%';
-    gsap.set(DOM.GLOBAL_WRAP.AREA, INST.stageOperator.default.AREA);
+    gsap.set(DOM.BG.AREA, INST.stageOperator.default.AREA);
     INST.stageOperator.vals.currentRepeatTime++;
     if (INST.stageOperator.vals.currentRepeatTime == 3) INST.stageOperator.color = 'yellow';
     else if (INST.stageOperator.vals.currentRepeatTime == 2) INST.stageOperator.color = 'green';
@@ -112,7 +113,7 @@ export class Animate {
    */
   _color() {
     for (let i = 0; i < INST.stageOperator.objects.length; i++) { 
-      INST.stageOperator.objects[i].style.backgroundColor = CULC.getRGBColor(INST.stageOperator.color, 206, 30);
+      INST.stageOperator.objects[i].style.backgroundColor = CULC.getRGBColor(INST.stageOperator.color, 206, 20);
     }
   }
 }

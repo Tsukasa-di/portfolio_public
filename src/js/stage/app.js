@@ -19,7 +19,7 @@ export class StageOperator {
       AREA: {
         scale: 2,
         rotate: -200,
-        width: SCREEN.TABLET() ? '60%' : '18%'
+        width: SCREEN.TABLET() ? '60%' : '25%'
       }
     }
   }
@@ -29,19 +29,19 @@ export class StageOperator {
   }
 
   animate() {
-    TL.start = gsap.timeline({repeat: -1, repeatDelay: 2.5});
-    TL.end = gsap.timeline({repeat: -1, repeatDelay: 2.5});
+    TL.start = gsap.timeline({repeat: -1, repeatDelay: 3.5, delay: 1.2});
+    TL.end = gsap.timeline({repeat: -1, repeatDelay: 3.5, delay: 1.2});
     new Animate().init();
   }
 
   _setting() {
     // 画面サイズによって objectTotal の数を変更
-    if (SCREEN.TABLET()) this.vals.objectTotal = 20;
-    else this.vals.objectTotal = 40;
+    if (SCREEN.TABLET()) this.vals.objectTotal = 15;
+    else this.vals.objectTotal = 30;
 
     // gsapの設定
-    gsap.set(DOM.GLOBAL_WRAP.AREA, this.default.AREA);
-    if (STATUS.page != 'home') this.default.AREA.width = SCREEN.TABLET() ? '60%' : '30%';
+    gsap.set(DOM.BG.AREA, this.default.AREA);
+    if (STATUS.page != 'home') this.default.AREA.width = ( SCREEN.TABLET() ? '60%' : '30%' );
 
     // Creating
     createObjects();

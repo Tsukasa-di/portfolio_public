@@ -4,25 +4,24 @@
 body.ABOUT {
   section {
     width: 100%;
-    height: 90%;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 0 50px 200px;
 
     @include setting.sp-layout() {
       height: auto;
+      padding: 0 20px 150px;
     }
 
     &:last-child {
-      margin-bottom: 5%;
-      
+      padding: 0 50px;
+      margin-bottom: 100px;
+
       @include setting.sp-layout() {
+        padding: 0 20px;
         margin-bottom: 150px;
       }
-    }
-
-    &.title {
-      height: 100%;
     }
   }
 }

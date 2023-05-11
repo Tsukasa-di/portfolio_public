@@ -1,0 +1,40 @@
+@use "../../settings/settings.scss" as setting;
+@use "sass:map";
+
+.COMP-CONTENTS-heading {
+  margin-bottom: 100px;
+
+  .copy {
+    @include setting.font_garamond();
+    font-size: 6.4rem;
+    margin-bottom: 10px;
+    
+    @include setting.tablet-layout() {
+      font-size: 3.2rem;
+      padding: 0 10px;
+    }
+  }
+  
+  h2 {
+    @include setting.font_zen_mincho();
+    font-size: 1.8rem;
+    margin-bottom: 50px;
+
+    @include setting.tablet-layout() {
+      font-size: 1.6rem;
+      padding: 0 10px;
+      margin-bottom: 40px;
+    }
+
+    @include setting.sp-layout() {
+      font-size: 1.4rem;
+    }
+  }
+
+  .border {
+    width: 100%;
+    height: 1px;
+    background-color: map.get(setting.$color, "basic_text");
+    opacity: 0.3;
+  }
+}

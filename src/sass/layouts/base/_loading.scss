@@ -21,6 +21,7 @@
     font-size: 1.6rem;
     letter-spacing: 0.2rem;
     padding-left: 10px;
+    @include setting.font_default();
 
     @include setting.sp-layout() {
       font-size: 1.4rem;
@@ -44,6 +45,10 @@
       height: 7px;
       width: 100%;
       border: 1px solid map.get(setting.$color, "basic_text");
+
+      @include setting.sp-layout() {
+        height: 5px;
+      }
     }
 
     .bar {
@@ -53,6 +58,10 @@
       height: 5px;
       width: 0px;
       background-color: map.get(setting.$color, "basic_text");
+
+      @include setting.sp-layout() {
+        height: 3px;
+      }
     }
   }
 

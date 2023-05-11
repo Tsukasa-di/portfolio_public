@@ -3,9 +3,9 @@ export const CULC = {
     const val = Math.floor( (Math.random() * max) + min );
     switch (type) {
       case 'red':
-        return 'rgba(' + val + ', ' + 0 + ', ' + 0 + ')';
+        return 'rgba(' + val + ', ' + 13 + ', ' + 13 + ')';
       case 'green':
-        return 'rgba(' + 0 + ', ' + val + ', ' + 0 + ')';
+        return 'rgba(' + 20 + ', ' + val + ', ' + 20 + ')';
       case 'yellow':
         return 'rgba(' + val + ', ' + val + ', ' + 0 + ')';
       default:

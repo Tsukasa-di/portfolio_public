@@ -11,7 +11,7 @@
     z-index: 9;
     pointer-events: none;
 
-    @include setting.sp-layout() {
+    @include setting.tablet-layout() {
       display: none;
     }
 

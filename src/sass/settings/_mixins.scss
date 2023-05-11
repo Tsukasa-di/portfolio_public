@@ -2,13 +2,19 @@
  Devices
 ======================= */
 
+@mixin over-layout ($width: 1681px) {
+  @media screen and (min-width: $width) {
+    @content;
+  } 
+}
+
 @mixin pc-layout ($width: 769px) {
   @media screen and (min-width: $width) {
     @content;
   }
 }
 
-@mixin tablet-wide-layout ($width: 1366px) {
+@mixin multi-device-layout ($width: 1440px) {
   @media screen and (max-width: $width) {
     @content;
   }
@@ -21,6 +27,12 @@
 }
 
 @mixin sp-layout ($width: 600px) {
+  @media screen and (max-width: $width) {
+    @content;
+  }
+}
+
+@mixin custom-works-item ($width: 1439px) {
   @media screen and (max-width: $width) {
     @content;
   }

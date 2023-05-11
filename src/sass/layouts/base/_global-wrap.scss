@@ -2,7 +2,10 @@
 @use "sass:map";
 
 #GLOBAL_WRAP {
-  @include setting.fullscreen();
-  transition: map.get(setting.$values, "transition");
-  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  @include setting.scrollbar-none();
 }

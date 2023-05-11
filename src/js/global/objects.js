@@ -8,7 +8,8 @@ const STATUS = {
   },
   audio: {
     active: false,
-    volume: 0
+    bgm: false,
+    direction: null
   },
   cursor: {
     light: true

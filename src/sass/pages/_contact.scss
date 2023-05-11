@@ -3,17 +3,24 @@
 
 body.CONTACT {
   section {
-    height: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 0 50px 200px;
 
     @include setting.sp-layout() {
       height: auto;
+      padding: 0 20px 150px;
     }
 
-    &.title {
-      height: 100%;
+    &:last-child {
+      padding: 0 50px;
+      margin-bottom: 100px;
+
+      @include setting.sp-layout() {
+        padding: 0 20px;
+        margin-bottom: 150px;
+      }
     }
   }
 

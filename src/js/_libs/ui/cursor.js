@@ -45,7 +45,7 @@ export class Cursor {
   }
 
   init() {
-    this.dom.light = DOM.GLOBAL_WRAP.BG.light;
+    this.dom.light = DOM.BG.light;
     this.dom.pointer = DOM.POINTER.pointer;
     this.dom.outer = DOM.POINTER.outer;
     this._domSet();

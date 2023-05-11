@@ -1,20 +1,23 @@
 extends ./_layouts/_default.pug
 include ./_components/works/_works_list.pug
+include ./_components/ui/_paginator.pug
 
 block Setting 
   -
     STATUS.page = 'WORKS';
-    CLASS.body = 'WORKS SINGLE'
+    CLASS.body = 'WORKS SINGLE';
+    const modal = 'works';
 
 block Contents 
-  #SCROLL_AREA
-    section.title 
-      .inner
-        p WORKS
-        .COMP-UI-scroll-navigation 
-          .arrow 
-            span 
-            span
+  section.title 
+    .inner
+      h1 WORKS
+      .COMP-UI-scroll-navigation 
+        .arrow 
+          span 
+          span
+  main
     section
       include ./_components/works/_works_list.pug
       +works-list(GLOBAL.works)
+  +paginator(['about', 'service', 'contact'])

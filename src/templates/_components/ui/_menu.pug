@@ -1,31 +1,35 @@
 mixin menu() 
   #MENU
-    p.link.contact.CURSOR_HOVER.CURSOR_CLICK.PAGE_CHANGER(data-page="contact")
+    .sound
+      .inner 
+        button.sound-on.CURSOR_HOVER.CURSOR_CLICK(data-sound="on")
+          img(src="./assets/images/ui/sound-on.png")
+        button.sound-off.CURSOR_HOVER.CURSOR_CLICK(data-sound="off")
+          img(src="./assets/images/ui/sound-off.png") 
+    p.contact.CURSOR_HOVER.CURSOR_CLICK.PAGE_CHANGER(data-page="contact")
       | CONTACT 
-      span
     .button.MENU_BUTTON.CURSOR_HOVER.CURSOR_CLICK
       .inner
         span 
         span
-    p.title WEB DESIGNER - TSUKASA TOMIOKA PORTFOLIO SITE.
+    p.title WEB CREATOR - TSUKASA TOMIOKA PORTFOLIO SITE.
     .mask
     .inner 
       .list 
-        p.link.CURSOR_HOVER.CURSOR_CLICK.PAGE_CHANGER(data-page="home") 
+        p.CURSOR_HOVER.CURSOR_CLICK.PAGE_CHANGER(data-page="home") 
           | HOME
-          span
         br
-        p.link.CURSOR_HOVER.CURSOR_CLICK.PAGE_CHANGER(data-page="about")
+        p.CURSOR_HOVER.CURSOR_CLICK.PAGE_CHANGER(data-page="about")
           | ABOUT
-          span
         br
-        p.link.CURSOR_HOVER.CURSOR_CLICK.PAGE_CHANGER(data-page="works")
+        p.CURSOR_HOVER.CURSOR_CLICK.PAGE_CHANGER(data-page="works")
           | WORKS
-          span
         br
-        p.link.CURSOR_HOVER.CURSOR_CLICK.PAGE_CHANGER.sp-only(data-page="contact")
+        p.CURSOR_HOVER.CURSOR_CLICK.PAGE_CHANGER(data-page="service")
+          | SERVICE
+        br
+        p.CURSOR_HOVER.CURSOR_CLICK.PAGE_CHANGER.sp-only(data-page="contact")
           | CONTACT
-          span
       .sns 
         div.icon.twitter 
         div.icon.github

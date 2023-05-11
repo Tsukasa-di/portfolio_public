@@ -1,0 +1,7 @@
+mixin paginator(pages)
+  .COMP-UI-paginator 
+    .border 
+    .contents 
+      for page in pages
+        .CURSOR_HOVER.CURSOR_CLICK.PAGE_CHANGER(data-page=page)
+          p.title #{page.toUpperCase()}

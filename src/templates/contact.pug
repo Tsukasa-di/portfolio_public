@@ -1,4 +1,5 @@
 extends ./_layouts/_default.pug
+include ./_components/ui/_paginator.pug
 
 block Setting 
   -
@@ -6,18 +7,19 @@ block Setting
     CLASS.body = 'CONTACT SINGLE'
 
 block Contents 
-  #SCROLL_AREA
-    section.title 
-      .inner
-        p CONTACT
-        .COMP-UI-scroll-navigation
-          .arrow 
-            span 
-            span
+  section.title 
+    .inner
+      h1 CONTACT
+      .COMP-UI-scroll-navigation
+        .arrow 
+          span 
+          span
+  main
     section
-      .COMP-COLUMN-title-contents 
+      .COMP-CONTENTS-title-contents 
         p.title MAIL
         .border
         .contents 
           h2 tsukasa.creator@gmail.com
           p.attention ご連絡から３営業日以内にはお返事させていただきます
+  +paginator(['works', 'service', 'about'])

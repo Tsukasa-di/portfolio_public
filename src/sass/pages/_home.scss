@@ -6,32 +6,55 @@ body.HOME {
     #MENU {
       .contact {
         top: 45px;
+        
+        @include setting.multi-device-layout() {
+          top: 35px;
+        }
       }
     }
   }
 
   #CONTENTS {
+    position: fixed;
+    top: 0;
+    left: 0;
     pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include setting.sp-layout() {
+      align-items: flex-end;
+    }
 
     > .inner {
-      padding-bottom: 7%;
-      padding-left: 53%;
       display: flex;
       justify-content: center;
       flex-direction: column;
   
       @include setting.sp-layout() {
         justify-content: flex-end;
-        padding: 0 20px 100px;
+      }
+
+      > * {
+        margin-left: 53%;
+
+        @include setting.sp-layout() {
+          margin-left: 20px;
+        }
       }
     }
     
     h1 {
       margin-bottom: 40px;
       line-height: 1.4;
-      font-size: 8.2rem;
+      font-size: 4.85vw;
       @include setting.font_garamond();
       color: map.get(setting.$color, "basic_text");
+
+      @include setting.over-layout() {
+        font-size: 8.2rem;
+      }
 
       @include setting.sp-layout() {
         font-size: 11vw;
@@ -41,8 +64,16 @@ body.HOME {
     
     .copy {
       @include setting.font_zen_mincho();
-      font-size: 2.0rem;
-      margin-bottom: 100px;
+      font-size: 1.19vw;
+      margin-bottom: 130px;
+
+      @include setting.over-layout() {
+        font-size: 2.0rem;
+      }
+
+      @include setting.multi-device-layout() {
+        margin-bottom: 12vh;
+      }
       
       @include setting.sp-layout() {
         font-size: 3.4vw;
@@ -59,16 +90,28 @@ body.HOME {
       align-items: center;
       justify-content: center;
       padding-left: 20px;
+      margin-bottom: 50px;
       pointer-events: visible;
 
+      @include setting.multi-device-layout() {
+        width: 240px;
+        height: 50px;
+        margin-bottom: 30px;
+      }
+      
       @include setting.sp-layout() {
         width: 240px;
         height: 50px;
+        margin-bottom: 100px;
       }
-
+      
       p {
         @include setting.font_garamond($weight: 600);
         color: map.get(setting.$color, "basic_base");
+        
+        @include setting.multi-device-layout() {
+          font-size: 1.3rem;
+        }
       }
 
       .arrow {
@@ -76,6 +119,10 @@ body.HOME {
         width: 90px;
         background-color: map.get(setting.$color, "basic_base");
         margin-left: 10px;
+        
+        @include setting.multi-device-layout() {
+          width: 70px;
+        }
 
         @include setting.sp-layout() {
           width: 75px;
@@ -88,6 +135,10 @@ body.HOME {
       position: absolute;
       bottom: 20px;
       font-size: 1.4rem;
+
+      @include setting.multi-device-layout() {
+        font-size: 0.84vw;
+      }
 
       @include setting.sp-layout() {
         font-size: 1.0rem;

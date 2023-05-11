@@ -1,0 +1,11 @@
+mixin title-contents(item)
+  .COMP-CONTENTS-title-contents 
+    p.title #{item.title}
+    .border
+    .contents 
+      if item.heading2
+        h2 #{item.heading2}
+      if item.copy
+        p.copy #{item.copy}
+      if item.description
+        p.description !{item.description}

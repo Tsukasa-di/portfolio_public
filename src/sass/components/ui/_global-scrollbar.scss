@@ -1,0 +1,20 @@
+@use "../../settings/settings" as setting;
+@use "sass:map";
+
+@mixin app {
+  &::-webkit-scrollbar {
+    width: 7px;
+  }
+ 
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-left-color: rgba(20, 20, 20);
+    border-right-color: rgba(20, 20, 20);
+  }
+ 
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(20, 20, 20);
+    border-radius: 10px;
+  }
+}

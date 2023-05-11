@@ -6,6 +6,10 @@ body.SINGLE {
     #MENU {
       padding: 30px 100px 15px;
 
+      @include setting.multi-device-layout() {
+        padding: 30px 60px 15px;
+      }
+
       @include setting.sp-layout() {
         padding: 20px;
       }
@@ -13,8 +17,20 @@ body.SINGLE {
       .button {
         top: 30px;
 
+        @include setting.multi-device-layout() {
+          top: 33px;
+        }
+
         @include setting.sp-layout() {
           top: 15px;
+        }
+      }
+
+      .sound {
+        top: 38px;
+
+        @include setting.sp-layout() {
+          top: 20px;
         }
       }
 
@@ -23,6 +39,10 @@ body.SINGLE {
         left: 100px;
         right: unset;
         text-align: left;
+
+        @include setting.multi-device-layout() {
+          left: 60px;
+        }
 
         @include setting.sp-layout() {
           left: unset;
@@ -33,86 +53,65 @@ body.SINGLE {
     }
   }
 
-  #STAGE {
-    #AREA, .mask {
-      opacity: 0;
-      display: none;
-    }
-
-    .movie {
-      opacity: 1;
-    }
-  }
-
   #CONTENTS > .inner {
-    height: 80%;
-    max-width: 1440px;
-    margin: 0 50px;
-    margin-top: 100px;
-    background-color: rgba(0, 0, 0, 0.85);
-    box-shadow: 0 0 70px #333;
-    border-radius: 10px;
-    overflow: hidden;
-    padding: 20px 0;
-        
-    @include setting.sp-layout() {
-      margin: 0 12px;
-      margin-top: 60px;
-      border-radius: 4px;
-      box-shadow: 0 0 30px #333;
-    }
-  }
+    max-width: 1280px;
+    margin: 0 auto;
 
-  #GLOBAL_WRAP {
-    overflow: visible;
-  }
-
-  #SCROLL_AREA {
-    position: relative;
-    z-index: 0;
-    width: 100%;
-    height: 100%;
-    overflow-y: scroll;
-    @include setting.scrollbar-none();
-    transition: all map.get(setting.$values, "transition");
-  }
-
-  section {
-    width: 100%;
-    padding: 0 50px;
-    
-    @include setting.sp-layout() {
-      padding: 0 20px;
-      margin-bottom: 100px;        
-    }
-    
-    &.title {
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+    main {
+      margin-bottom: 300px;
 
       @include setting.sp-layout() {
-        margin-bottom: 0;  
+        margin-bottom: 200px;
+      }
+    }
+
+    section {
+      width: 100%;
+
+      &:last-child {
+        margin-bottom: 100px;
       }
       
-      p {
-        font-size: 14.0rem;
-        @include setting.font_garamond($style: italic);
-        
-        @include setting.sp-layout() {
-          font-size: 7rem;
+      &.title {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+  
+        .inner {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          margin-bottom: 30px;
+        }
+  
+        h1 {
+          font-size: 9.0vw;
+          letter-spacing: 1.4rem;
+          @include setting.font_garamond($style: italic);
+          
+          @include setting.sp-layout() {
+            font-size: 6rem;
+          }
         }
       }
     }
+  }
 
-    .inner {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 30px;
+  #STAGE {
+    opacity: 0.18;
+
+    @include setting.sp-layout() {
+      opacity: 0.3;
+    }
+  }
+
+  #BG {
+    .mask-right {
+      backdrop-filter: none;
     }
   }
 }
